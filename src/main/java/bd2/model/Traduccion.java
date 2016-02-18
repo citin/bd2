@@ -2,16 +2,22 @@ package bd2.model;
 
 import java.util.Date;
 
+/**
+ * @author bd2
+ *
+ */
 public class Traduccion extends Tarea {
 
 
 	protected String texto;
+	protected Parrafo parrafo;
 	protected Idioma idioma;
 
-	public Traduccion(Date fecha, String descripcion, Boolean completa, String texto, Idioma idioma) {
+	public Traduccion(Date fecha, String descripcion, Boolean completa, String texto, Parrafo parrafo, Idioma idioma) {
 		super(fecha, descripcion, completa);
 		this.texto = texto;
 		this.idioma = idioma;
+		this.parrafo = parrafo;
 	}
 
 	public String getTexto() {
@@ -28,8 +34,14 @@ public class Traduccion extends Tarea {
 
 	public void setIdioma(Idioma idioma) {
 		this.idioma = idioma;
+	}
+
+	public Parrafo getParrafo() {
+		return parrafo;
+	}
+
+	public void setParrafo(Parrafo parrafo) {
+		this.parrafo = parrafo;
 	}	
-	
-	
 	
 }

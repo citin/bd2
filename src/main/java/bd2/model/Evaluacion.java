@@ -2,6 +2,10 @@ package bd2.model;
 
 import java.util.Date;
 
+/**
+ * @author bd2
+ *
+ */
 public class Evaluacion extends Tarea {
 
 	protected Traduccion traduccion;

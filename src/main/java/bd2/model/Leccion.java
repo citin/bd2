@@ -4,11 +4,10 @@ package bd2.model;
  * @author bd2
  *
  */
-public class Idioma {
+public class Leccion {
 	protected String nombre;
 	
-	public Idioma(String nombre) {
-		super();
+	public Leccion(String nombre){
 		this.nombre = nombre;
 	}
 
@@ -19,4 +18,5 @@ public class Idioma {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
 }
