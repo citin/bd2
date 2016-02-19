@@ -6,10 +6,11 @@ package bd2.model;
  */
 public class Idioma {
 	protected String nombre;
+	protected Diccionario diccionario;
 	
 	public Idioma(String nombre) {
-		super();
 		this.nombre = nombre;
+		this.diccionario = new Diccionario(this);
 	}
 
 	public String getNombre() {
