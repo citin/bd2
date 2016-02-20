@@ -20,4 +20,8 @@ public class Idioma {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	public Diccionario getDiccionario() {
+		return this.diccionario;
+	}
 }

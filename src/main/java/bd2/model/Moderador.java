@@ -4,6 +4,7 @@
 package bd2.model;
 
 import java.util.Date;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -15,15 +16,14 @@ public class Moderador extends Usuario {
 
 	protected Collection<Evaluacion> evaluaciones = new HashSet<Evaluacion>();
 	protected Collection<Idioma> idiomas = new HashSet<Idioma>();
-	
+
 	public Moderador(String email, String nombre, Date fechaDeCreacion) {
 		super(email, nombre, fechaDeCreacion);
 		// TODO Auto-generated constructor stub
 	}
 
-	public int reputacion(){
-		//TODO - implementar según lo que aporta al sistema
-		return 0;
+	public int reputacion() {
+		return this.getEvaluaciones().size();
 	}
 
 	public Collection<Evaluacion> getEvaluaciones() {
@@ -40,6 +40,23 @@ public class Moderador extends Usuario {
 
 	public void setIdiomas(Collection<Idioma> idiomas) {
 		this.idiomas = idiomas;
+	}
+
+	public boolean manejaIdioma(Idioma idioma) {
+		return this.getIdiomas().contains(idioma);
+	}
+
+	public void agregarIdioma(Idioma idioma) {
+		this.getIdiomas().add(idioma);
+	}
+
+	public void evaluar(Traduccion traduccion, int puntaje) throws Exception {
+		Calendar cal = Calendar.getInstance();
+		if (this.manejaIdioma(traduccion.getIdioma()) & this.manejaIdioma(traduccion.getIdiomaOriginal())) {
+			Evaluacion evaluacion = new Evaluacion(cal.getTime(), "Buena", true, traduccion, puntaje);
+			this.getEvaluaciones().add(evaluacion);
+		} else
+			throw new Exception("No se pueden evaluar traducciones de idiomas que el moderador no maneja.");
 	}
 
 }
