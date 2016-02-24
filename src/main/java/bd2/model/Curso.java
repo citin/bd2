@@ -9,12 +9,14 @@ import java.util.HashSet;
  */
 public class Curso {
 	protected String nombre;
+	protected Idioma idioma;
 	protected int nivel;
 	protected Collection<Leccion> lecciones = new HashSet<Leccion>();
 	
-	public Curso(String nombre,int nivel){
+	public Curso(String nombre,Idioma idioma, int nivel){
 		this.nombre = nombre;
 		this.nivel= nivel;
+		this.idioma= idioma;
 	}
 
 	public String getNombre() {
@@ -40,4 +42,10 @@ public class Curso {
 	public void setLecciones(Collection<Leccion> lecciones) {
 		this.lecciones = lecciones;
 	}
+	
+	public void agregarLeccion(Leccion leccion) {
+		this.lecciones.add(leccion);
+	}
+	
+	
 }

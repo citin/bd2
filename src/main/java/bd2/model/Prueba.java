@@ -8,8 +8,9 @@ public class Prueba {
 	protected int puntaje;
 	protected Leccion leccion;
 	
-	public Prueba(Leccion leccion){
+	public Prueba(Leccion leccion, Integer puntaje){
 		this.leccion = leccion;
+		this.puntaje = puntaje;
 	}
 
 	public int getPuntaje() {
@@ -26,5 +27,9 @@ public class Prueba {
 
 	public void setLeccion(Leccion leccion) {
 		this.leccion = leccion;
+	}
+	
+	public Boolean aprobada(){
+		return this.puntaje >= 60;
 	}
 }

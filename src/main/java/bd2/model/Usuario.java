@@ -57,4 +57,8 @@ public class Usuario {
 	public void agregarTraduccion(Traduccion traduccion){
 		this.traducciones.add(traduccion);
 	}
+	
+	public Integer nivel(){
+		return 0;
+	}
 }
