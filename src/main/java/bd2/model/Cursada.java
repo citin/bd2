@@ -1,4 +1,6 @@
 package bd2.model;
+
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
@@ -12,11 +14,12 @@ public class Cursada {
 	protected Date inicio;
 	protected Usuario usuario;
 	protected Collection<Prueba> pruebas = new HashSet<Prueba>();
-	
-	public Cursada(Curso curso, Date inicio, Usuario usuario){
+
+	public Cursada(Curso curso, Date inicio, Usuario usuario) {
 		this.curso = curso;
 		this.inicio = inicio;
 		this.usuario = usuario;
+		usuario.agregarCursada(this);
 	}
 
 	public Curso getCurso() {
@@ -30,14 +33,20 @@ public class Cursada {
 	public Date getInicio() {
 		return inicio;
 	}
-	
-	
+
+	public Idioma getIdioma() {
+		return this.getCurso().getIdioma();
+	}
+
+	public int getNivel() {
+		return this.getCurso().getNivel();
+	}
 
 	public void setInicio(Date inicio) {
 		this.inicio = inicio;
 	}
-	
-	public void agregarPrueba(Prueba prueba){
+
+	public void agregarPrueba(Prueba prueba) {
 		this.pruebas.add(prueba);
 	}
 
@@ -48,9 +57,22 @@ public class Cursada {
 	public void setPruebas(Collection<Prueba> pruebas) {
 		this.pruebas = pruebas;
 	}
-	
-	public Boolean finalizada(){
-		return false;
+
+	public Boolean finalizada() {
+		Collection<Leccion> leccionesAprobadas = this.leccionesAprobadas();
+		Collection<Leccion> leccionesEsperadas = this.getCurso().getLecciones();
+		for (Leccion esperada : leccionesEsperadas)
+			if (!leccionesAprobadas.contains(esperada))
+				return false;
+		return true;
 	}
-	
+
+	public Collection<Leccion> leccionesAprobadas() {
+		Collection<Leccion> aprobadas = new ArrayList<Leccion>();
+		for (Prueba prueba : this.getPruebas())
+			if (prueba.aprobada())
+				aprobadas.add(prueba.getLeccion());
+		return aprobadas;
+	}
+
 }

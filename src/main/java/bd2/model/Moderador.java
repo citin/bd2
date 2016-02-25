@@ -19,7 +19,6 @@ public class Moderador extends Usuario {
 
 	public Moderador(String email, String nombre, Date fechaDeCreacion) {
 		super(email, nombre, fechaDeCreacion);
-		// TODO Auto-generated constructor stub
 	}
 
 	public int reputacion() {

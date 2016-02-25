@@ -32,9 +32,21 @@ public class ModeradorTest extends TestCase {
 		suecoAIngles = new Traduccion(ayer, "Sueco a Inglés", true, "Furniture is good", manualIkeaIntro, ingles);
 		sven = new Moderador("sven@polyglot.com", "Sven Knutsen", hace1Anho);
 	}
+	
+	public void testModerador(){
+		Calendar cal = Calendar.getInstance();
+		Date hoy = cal.getTime();
+		Moderador nuevo = new Moderador("juan@polyglot.com", "Juan", hoy);
+		assertEquals(nuevo.getNombre(), "Juan");
+		assertEquals(nuevo.getEmail(), "juan@polyglot.com");
+		assertEquals(nuevo.getFechaDeCreacion(), hoy);
+		assertEquals(nuevo.nivel(ingles), 0);
+		assertEquals(nuevo.reputacion(), 0);
+		assertTrue(nuevo.getIdiomas().isEmpty());
+		assertTrue(nuevo.getEvaluaciones().isEmpty());
+	}
 
-	public void testAgregarIdioma() {
-		assertTrue(sven.getIdiomas().isEmpty());
+	public void testManejaIdioma() {
 		assertFalse(sven.manejaIdioma(sueco));
 		sven.agregarIdioma(sueco);
 		assertTrue(sven.manejaIdioma(sueco));
