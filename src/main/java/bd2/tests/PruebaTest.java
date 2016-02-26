@@ -14,10 +14,30 @@ public class PruebaTest extends TestCase {
 
 	private Prueba prueba;
 	private Leccion vocabularioBasico;
-	
+
 	protected void setUp() throws Exception {
 		vocabularioBasico = new Leccion("Vocabulario 1");
 		prueba = new Prueba(vocabularioBasico, 1);
+	}
+
+	public void testPrueba() {
+		Prueba nuevo = new Prueba(vocabularioBasico, 60);
+		assertEquals(nuevo.getLeccion(), vocabularioBasico);
+		assertEquals(nuevo.getPuntaje(), 60);
+
+		try {
+			nuevo = new Prueba(vocabularioBasico, -1);
+			fail("El puntaje de una prueba debe ser un valor entre 0 y 100");
+		} catch (Exception e) {
+			assertEquals("No se puede crear una instancia de Prueba con valores negativos como puntaje de una prueba.", e.getMessage());
+		}
+		
+		try {
+			nuevo = new Prueba(vocabularioBasico, 101);
+			fail("El puntaje de una prueba debe ser un valor entre 0 y 100");
+		} catch (Exception e) {
+			assertEquals("No se puede usar valores mayores a 100 como puntaje de una prueba.", e.getMessage());
+		}
 	}
 	
 	public void testSetPuntaje(){

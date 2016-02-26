@@ -14,6 +14,12 @@ public class DiccionarioTest extends TestCase {
 		vacio = ingles.getDiccionario();
 	}
 
+	public void testDiccionario(){
+		Idioma portugues = new Idioma("Portugues");
+		Diccionario nuevoDiccionario = new Diccionario(portugues);
+		assertTrue(nuevoDiccionario.getDefiniciones().isEmpty());
+	}
+
 	public void testAgregarDefinicion() {
 		assertTrue(vacio.getDefiniciones().isEmpty());
 		vacio.agregarDefinicion("procrastinate", "Fancy word for doing nothing");

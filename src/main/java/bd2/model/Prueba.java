@@ -9,6 +9,10 @@ public class Prueba {
 	protected Leccion leccion;
 	
 	public Prueba(Leccion leccion, Integer puntaje){
+		if (puntaje < 0)
+			throw new Excepcion("No se puede crear una instancia de Prueba con valores negativos como puntaje de una prueba.");
+		if (puntaje > 100)
+			throw new Excepcion("No se puede usar valores mayores a 100 como puntaje de una prueba.");
 		this.leccion = leccion;
 		this.puntaje = puntaje;
 	}

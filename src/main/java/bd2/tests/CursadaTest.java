@@ -45,6 +45,26 @@ public class CursadaTest extends TestCase {
 		encurso = new Cursada(cursoInglesBasico, hoy, sven);
 	}
 
+	public void testCursada(){
+		Calendar cal = Calendar.getInstance();
+		Date hoy = cal.getTime();
+		Idioma ingles = new Idioma("Portugues");
+		Curso cursoIdioma = new Curso("Introducción al portugues",portugues,1);
+		Leccion vocabularioPortugues = new Leccion("Vocabulario 1");
+		cursoIdioma.agregarLeccion(vocabularioPortugues);
+		Usuario juan = new Usuario("juan@polyglot.com", "Juan", hoy);
+		Cursada nuevaCursada = new Cursada(cursoIdioma, hoy, juan);
+		
+		assertEquals(nuevaCursada.getIdioma(), portugues);
+		assertEquals(nuevaCursada.getInicio(), hoy);
+		assertEquals(nuevaCursada.getCurso(), cursoIdioma);
+		assertEquals(nuevaCursada.getUsuario(), juan);
+
+		assertFalse(nuevaCursada.leccionesAprobadas().isEmpty());
+		assertFalse(nuevaCursada.getPruebas().isEmpty());
+		assertFalse(nuevaCursada.finalizada());
+	}
+
 	public void testAgregarPrueba(){
 		assertEquals(encurso.getPruebas().size(), 0);
 		encurso.agregarPrueba(vocabularioBasicoDesaprobada);
