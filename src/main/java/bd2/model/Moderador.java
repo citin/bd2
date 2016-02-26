@@ -49,10 +49,10 @@ public class Moderador extends Usuario {
 		this.getIdiomas().add(idioma);
 	}
 
-	public void evaluar(Traduccion traduccion, int puntaje) throws Exception {
+	public void evaluar(Traduccion traduccion, String descripcion, int puntaje) throws Exception {
 		Calendar cal = Calendar.getInstance();
 		if (this.manejaIdioma(traduccion.getIdioma()) & this.manejaIdioma(traduccion.getIdiomaOriginal())) {
-			Evaluacion evaluacion = new Evaluacion(cal.getTime(), "Buena", true, traduccion, puntaje);
+			Evaluacion evaluacion = new Evaluacion(cal.getTime(), descripcion, true, traduccion, puntaje);
 			this.getEvaluaciones().add(evaluacion);
 		} else
 			throw new Exception("No se pueden evaluar traducciones de idiomas que el moderador no maneja.");

@@ -21,17 +21,23 @@ public class PruebaTest extends TestCase {
 	}
 
 	public void testPrueba() {
-		Prueba nuevo = new Prueba(vocabularioBasico, 60);
-		assertEquals(nuevo.getLeccion(), vocabularioBasico);
-		assertEquals(nuevo.getPuntaje(), 60);
+		Prueba nuevo;
+		try {
+			nuevo = new Prueba(vocabularioBasico, 60);
+			assertEquals(nuevo.getLeccion(), vocabularioBasico);
+			assertEquals(nuevo.getPuntaje(), 60);
+		} catch (Exception e1) {
+			fail("Crear una prueba con puntaje 60 no debería fallar.");
+		}
 
 		try {
 			nuevo = new Prueba(vocabularioBasico, -1);
 			fail("El puntaje de una prueba debe ser un valor entre 0 y 100");
 		} catch (Exception e) {
-			assertEquals("No se puede crear una instancia de Prueba con valores negativos como puntaje de una prueba.", e.getMessage());
+			assertEquals("No se puede usar valores negativos como puntaje de una prueba.",
+					e.getMessage());
 		}
-		
+
 		try {
 			nuevo = new Prueba(vocabularioBasico, 101);
 			fail("El puntaje de una prueba debe ser un valor entre 0 y 100");
@@ -39,8 +45,8 @@ public class PruebaTest extends TestCase {
 			assertEquals("No se puede usar valores mayores a 100 como puntaje de una prueba.", e.getMessage());
 		}
 	}
-	
-	public void testSetPuntaje(){
+
+	public void testSetPuntaje() {
 		try {
 			prueba.setPuntaje(-1);
 			fail("El puntaje de una prueba debe ser un valor entre 0 y 100");
@@ -48,26 +54,36 @@ public class PruebaTest extends TestCase {
 			assertEquals("No se puede usar valores negativos como puntaje de una prueba.", e.getMessage());
 			assertEquals(prueba.getPuntaje(), 1);
 		}
-		prueba.setPuntaje(0);
-		assertEquals(prueba.getPuntaje(), 0);
-		
-		prueba.setPuntaje(100);
-		assertEquals(prueba.getPuntaje(), 100);
+		try {
+			prueba.setPuntaje(0);
+			assertEquals(prueba.getPuntaje(), 0);
+		} catch (Exception e1) {
+			fail("Poner puntaje 0 a una Prueba no debería fallar.");
+		}
 
 		try {
-			prueba.setPuntaje(101);	
+			prueba.setPuntaje(100);
+			assertEquals(prueba.getPuntaje(), 100);
+		} catch (Exception e1) {
+			fail("Poner puntaje 100 a una Prueba no debería fallar.");
+		}
+
+		try {
+			prueba.setPuntaje(101);
 			fail("El puntaje de una prueba debe ser un valor entre 0 y 100");
 		} catch (Exception e) {
 			assertEquals("No se puede usar valores mayores a 100 como puntaje de una prueba.", e.getMessage());
 			assertEquals(prueba.getPuntaje(), 100);
 		}
 	}
-	
-	public void testAprobada(){
+
+	public void testAprobada() throws Exception {
 		assertFalse(prueba.aprobada());
 		prueba.setPuntaje(59);
 		assertFalse(prueba.aprobada());
 		prueba.setPuntaje(60);
-		assertTrue(prueba.aprobada());	
+		assertTrue(prueba.aprobada());
+		prueba.setPuntaje(61);
+		assertTrue(prueba.aprobada());
 	}
 }

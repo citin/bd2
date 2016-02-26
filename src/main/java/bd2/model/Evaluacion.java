@@ -17,4 +17,20 @@ public class Evaluacion extends Tarea {
 		this.puntaje = puntaje;
 	}
 
+	public Traduccion getTraduccion() {
+		return traduccion;
+	}
+
+	public void setTraduccion(Traduccion traduccion) {
+		this.traduccion = traduccion;
+	}
+
+	public int getPuntaje() {
+		return puntaje;
+	}
+
+	public void setPuntaje(int puntaje) {
+		this.puntaje = puntaje;
+	}
+
 }

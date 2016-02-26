@@ -75,4 +75,8 @@ public class Cursada {
 		return aprobadas;
 	}
 
+	public Usuario getUsuario() {
+		return this.usuario;
+	}
+
 }

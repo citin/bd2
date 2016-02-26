@@ -59,7 +59,7 @@ public class ModeradorTest extends TestCase {
 	public void testEvaluar() {
 		int reputacionPrevia = sven.reputacion();
 		try {
-			sven.evaluar(suecoAIngles, 8);
+			sven.evaluar(suecoAIngles, "Buena", 8);
 			fail("Evaluar documentos de idiomas que el moderador no maneja debería fallar.");
 		} catch (Exception e) {
 			assertEquals("No se pueden evaluar traducciones de idiomas que el moderador no maneja.", e.getMessage());
@@ -68,7 +68,7 @@ public class ModeradorTest extends TestCase {
 		}
 		sven.agregarIdioma(sueco);
 		try {
-			sven.evaluar(suecoAIngles, 8);
+			sven.evaluar(suecoAIngles, "Buena", 8);
 			fail("Evaluar documentos de idiomas que el moderador no maneja debería fallar.");
 		} catch (Exception e) {
 			assertEquals("No se pueden evaluar traducciones de idiomas que el moderador no maneja.", e.getMessage());
@@ -77,7 +77,7 @@ public class ModeradorTest extends TestCase {
 		}
 		sven.agregarIdioma(ingles);
 		try {
-			sven.evaluar(suecoAIngles, 8);
+			sven.evaluar(suecoAIngles, "Buena", 8);
 		} catch (Exception e) {
 			fail("Evaluar documentos donde el moderador maneja ambos idiomas debería funcionar.");
 		}

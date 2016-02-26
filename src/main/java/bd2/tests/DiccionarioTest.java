@@ -18,6 +18,7 @@ public class DiccionarioTest extends TestCase {
 		Idioma portugues = new Idioma("Portugues");
 		Diccionario nuevoDiccionario = new Diccionario(portugues);
 		assertTrue(nuevoDiccionario.getDefiniciones().isEmpty());
+		assertEquals(nuevoDiccionario.getIdioma(), portugues);
 	}
 
 	public void testAgregarDefinicion() {
