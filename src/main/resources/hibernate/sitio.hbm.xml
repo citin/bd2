@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="bd2.model">
+
+	<class name="Sitio" table="sitio">
+		<id name="id" column="sitio_id">
+			<generator class="native" />
+		</id>
+<!-- 	<set name="usuarios" lazy="true" cascade="all">
+			<key column="sitio_id" />
+			<one-to-many class="Usuario" />
+		</set>
+		<set name="documentos" lazy="true" cascade="all">
+			<key column="documento_id" />
+			<one-to-many class="Documento" />
+		</set>
+		<set name="cursos" lazy="true" cascade="all">
+			<key column="curso_id" />
+			<one-to-many class="Curso" />
+		</set> -->
+	</class>
+</hibernate-mapping>

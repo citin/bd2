@@ -13,7 +13,16 @@ public abstract class Tarea {
 
 	protected Date fecha;
 	protected String descripcion;
-	protected Boolean completa = false;
+	protected Boolean completa = false;;
+	private long id;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 	
 	public Tarea(Date fecha, String descripcion, Boolean completa) {
 		super();
