@@ -6,6 +6,15 @@ package bd2.model;
  */
 public class Leccion {
 	protected String nombre;
+	private long id;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 	
 	public Leccion(String nombre){
 		this.nombre = nombre;

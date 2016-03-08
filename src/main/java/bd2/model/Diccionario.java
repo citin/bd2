@@ -15,7 +15,7 @@ public class Diccionario {
 	protected Map<String, String> definiciones = new HashMap<String, String>();
 	protected Idioma idioma;
 	protected String edicion;
-
+	private long id;
 	/**
 	 * 
 	 */
@@ -53,6 +53,14 @@ public class Diccionario {
 
 	public void setEdicion(String edicion) {
 		this.edicion = edicion;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

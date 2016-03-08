@@ -7,12 +7,24 @@ package bd2.model;
 public class Prueba {
 	protected int puntaje;
 	protected Leccion leccion;
+	private long id;
 
 	public Prueba(Leccion leccion, Integer puntaje) throws Exception {
 		this.setLeccion(leccion);
 		this.setPuntaje(puntaje);
 	}
+	
+	public Prueba() throws Exception {
+		super();
+	}
+	
+	public long getId() {
+		return id;
+	}
 
+	public void setId(long id) {
+		this.id = id;
+	}
 	public int getPuntaje() {
 		return puntaje;
 	}

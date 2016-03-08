@@ -21,12 +21,21 @@ public class Usuario {
 	protected Date fechaDeCreacion;
 	protected Collection<Traduccion> traducciones = new HashSet<Traduccion>();
 	protected Collection<Cursada> cursadasRealizadas = new HashSet<Cursada>();
+	private long id;
 
 	public Usuario(String email, String nombre, Date fechaDeCreacion) {
 		super();
 		this.email = email;
 		this.nombre = nombre;
 		this.fechaDeCreacion = fechaDeCreacion;
+	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getEmail() {

@@ -12,11 +12,22 @@ public class Curso {
 	protected Idioma idioma;
 	protected int nivel;
 	protected Collection<Leccion> lecciones = new HashSet<Leccion>();
+	private long id;
+
+
 
 	public Curso(String nombre, Idioma idioma, int nivel) {
 		this.nombre = nombre;
 		this.nivel = nivel;
 		this.idioma = idioma;
+	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getNombre() {

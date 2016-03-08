@@ -14,12 +14,21 @@ public class Cursada {
 	protected Date inicio;
 	protected Usuario usuario;
 	protected Collection<Prueba> pruebas = new HashSet<Prueba>();
-
+	private long id;
+	
 	public Cursada(Curso curso, Date inicio, Usuario usuario) {
 		this.curso = curso;
 		this.inicio = inicio;
 		this.usuario = usuario;
 		usuario.agregarCursada(this);
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public Curso getCurso() {

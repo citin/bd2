@@ -11,11 +11,13 @@ public class Documento {
 	protected Idioma idioma;
 	protected String nombre;
 	protected Collection<Parrafo> parrafos = new HashSet<Parrafo>();
+	private long id;
 	
 	public Documento(String nombre, Idioma idioma) {
 		this.nombre = nombre;
 		this.idioma = idioma;
 	}
+	
 	
 	public Idioma getIdioma() {
 		return idioma;
@@ -43,6 +45,16 @@ public class Documento {
 
 	private void setParrafos(Collection<Parrafo> parrafos) {
 		this.parrafos = parrafos;
+	}
+
+
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 

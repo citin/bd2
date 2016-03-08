@@ -33,4 +33,8 @@ public class Idioma {
 	public Diccionario getDiccionario() {
 		return this.diccionario;
 	}
+
+	public void setDiccionario(Diccionario diccionario) {
+		this.diccionario = diccionario;
+	}
 }
