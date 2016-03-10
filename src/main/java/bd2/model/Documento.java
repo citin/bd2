@@ -13,6 +13,9 @@ public class Documento {
 	protected Collection<Parrafo> parrafos = new HashSet<Parrafo>();
 	private long id;
 	
+
+	public Documento(){}
+	
 	public Documento(String nombre, Idioma idioma) {
 		this.nombre = nombre;
 		this.idioma = idioma;
