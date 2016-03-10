@@ -10,6 +10,11 @@
 			<generator class="native" />
 		</id>
 		<property name="nombre" />
+		<many-to-one name="diccionario" 
+        	column="diccionario_id"
+        	cascade="all"
+        	unique="true"/>
+    
 	</class>
 
 </hibernate-mapping>

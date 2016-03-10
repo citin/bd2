@@ -35,8 +35,10 @@ public class Documento {
 		this.nombre = nombre;
 	}
 
-	public void agregarParrafo(String texto){
-		this.parrafos.add(new Parrafo(texto, this));
+	public Parrafo agregarParrafo(String texto){
+		Parrafo nuevo = new Parrafo(texto, this);
+		this.parrafos.add(nuevo);
+		return nuevo;
 	}
 
 	public Collection<Parrafo> getParrafos() {

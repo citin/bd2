@@ -19,8 +19,9 @@ public class Diccionario {
 	/**
 	 * 
 	 */
-	public Diccionario(Idioma idioma) {
+	public Diccionario(Idioma idioma, String edicion) {
 		this.idioma = idioma;
+		this.edicion = edicion;
 	}
 
 	public Map<String, String> getDefiniciones() {

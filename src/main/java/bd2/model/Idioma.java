@@ -19,7 +19,7 @@ public class Idioma {
 	
 	public Idioma(String nombre) {
 		this.nombre = nombre;
-		this.diccionario = new Diccionario(this);
+		this.diccionario = new Diccionario(this, "");
 	}
 
 	public String getNombre() {

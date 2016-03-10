@@ -14,6 +14,7 @@
 		
 		<many-to-one name="idioma" 
         	column="idioma_id" 
+        	cascade="all"
         	not-null="true"/>
 		
 		<set name="parrafos" cascade="all">

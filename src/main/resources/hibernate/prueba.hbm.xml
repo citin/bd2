@@ -11,6 +11,10 @@
 		</id>
 
 		<property name="puntaje"/>
+		<many-to-one name="leccion" 
+		    column="leccion_id" 
+        	cascade="all"
+        	not-null="true"/>
 	</class>
 
 </hibernate-mapping>

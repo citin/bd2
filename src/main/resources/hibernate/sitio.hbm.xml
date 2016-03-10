@@ -16,14 +16,13 @@
 		<set name="cursos" lazy="true" cascade="all">
 			<key column="sitio_id" />
 			<one-to-many class="Curso" />
-		</set> 
-<!-- 
+		</set>
+
 		<set name="documentos" lazy="true" cascade="all">
-			<key column="documento_id" />
+			<key column="sitio_id" />
 			<one-to-many class="Documento" />
 		</set>
-		
--->
+
 
 	</class>
 </hibernate-mapping>

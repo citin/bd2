@@ -15,6 +15,14 @@
         	column="idioma_id" 
         	unique="true"
         	not-null="true"/>
-	</class>
+        	
+        <map name="definiciones"  table="diccionario_definiciones">
+			<key column="id"/>
+			<index column="palabra" type="string" />
+			<element column="definicion" type="string" />
+		</map>
+        	
+        
+		</class>
 	
 </hibernate-mapping>

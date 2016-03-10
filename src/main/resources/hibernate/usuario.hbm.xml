@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="bd2.model">
 
-	<class name="Usuario" table="usuario">
+	<class name="Usuario" table="usuario" discriminator-value="U">
 		<id name="id" column="usuario_id">
 			<generator class="native" />
 		</id>
