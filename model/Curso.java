@@ -1,9 +1,26 @@
 package bd2.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class Curso {
 	
+	// new Curso("Introducción al ingles", ingles, 1);
+	public Curso(String nombre, Idioma idioma, Integer nivel) {
+		super();
+		this.nombre = nombre;
+		this.nivel = nivel;
+		this.idioma = idioma;
+		this.lecciones = new ArrayList<Leccion>();
+	}
+
+	// Attributes
+	private String nombre;
+	private Integer nivel;
+	private Collection<Leccion> lecciones;
+	private Idioma idioma;
+	
+	// Accesors
 	public String getNombre() {
 		return nombre;
 	}
@@ -29,15 +46,8 @@ public class Curso {
 		this.idioma = idioma;
 	}
 	
-	public Leccion agregarLeccion(Leccion lec){
+	// Methods
+	public void agregarLeccion(Leccion lec){
 		this.lecciones.add(lec);
-		return lec;
 	}
-	
-	private String nombre;
-	private Integer nivel;
-	private Collection<Leccion> lecciones;
-	private Idioma idioma;
-	
-		
 }
