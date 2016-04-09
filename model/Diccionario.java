@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public class Diccionario {
 	
-	private Map definiciones;
+	private Map<String, String> definiciones;
 	private String edicion;
 	private Idioma idioma;
 
@@ -31,13 +31,13 @@ public class Diccionario {
 	public Diccionario(Idioma nuevoIdioma, String nuevaEdicion){
 		this.idioma = nuevoIdioma;
 		this.edicion = nuevaEdicion;
-		this.definiciones = new Hashtable();
+		this.definiciones = new Hashtable<String, String>();
 	}
 	
-	public Map getDefiniciones() {
+	public Map<String, String> getDefiniciones() {
 		return definiciones;
 	}
-	public void setDefiniciones(Map definiciones) {
+	public void setDefiniciones(Map<String, String> definiciones) {
 		this.definiciones = definiciones;
 	}
 	public String getEdicion() {
