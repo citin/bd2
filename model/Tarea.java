@@ -16,9 +16,15 @@ import java.util.Date;
  */
 public abstract class Tarea {
 	
+<<<<<<< HEAD
 	protected Date fecha;
 	protected String descripcion;
 	protected Boolean completa;
+=======
+	private Date fecha;
+	private String descripcion;
+	private Boolean completa;
+>>>>>>> 7917cbd4af1bec742e5adb469af8fc787d80135a
 	
 	public Date getFecha() {
 		return fecha;

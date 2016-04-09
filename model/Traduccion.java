@@ -14,6 +14,10 @@ import java.util.Date;
  * @author Grupo10
  *
  */
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7917cbd4af1bec742e5adb469af8fc787d80135a
 public class Traduccion extends Tarea {
 	
 	private Date fecha;
