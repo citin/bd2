@@ -17,6 +17,11 @@ import java.util.Collection;
  */
 public class Sitio {
 
+	// Attributes
+	private Collection<Documento> documentos;
+	private Collection<Usuario> usuarios;
+	private Collection<Curso> cursos;
+	
 	/**
 	 * Constructor de la clase Sitio
 	 */
@@ -27,10 +32,7 @@ public class Sitio {
 		this.setCursos( new ArrayList<Curso>());
 	}
 
-	private Collection<Documento> documentos;
-	private Collection<Usuario> usuarios;
-	private Collection<Curso> cursos;
-
+	// Accesors
 	public void registrarUsuario(Usuario user){
 		usuarios.add(user);
 	}

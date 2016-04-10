@@ -16,6 +16,13 @@ import java.util.Collection;
  *
  */
 public class Curso {
+	
+	// Attributes
+	private String nombre;
+	private Integer nivel;
+	private Collection<Leccion> lecciones;
+	private Idioma idioma;
+	
 	/**
 	 * Constructor de la clase Curso
 	 * 
@@ -31,12 +38,6 @@ public class Curso {
 		this.setIdioma(idioma);
 		this.setLecciones( new ArrayList<Leccion>());
 	}
-
-	// Attributes
-	private String nombre;
-	private Integer nivel;
-	private Collection<Leccion> lecciones;
-	private Idioma idioma;
 	
 	// Accesors
 	public String getNombre() {
@@ -65,6 +66,10 @@ public class Curso {
 	}
 	
 	// Methods
+	/**
+	 * Agrega una leccion al curso.
+	 * @param lec
+	 */
 	public void agregarLeccion(Leccion lec){
 		this.lecciones.add(lec);
 	}

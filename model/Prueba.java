@@ -13,6 +13,10 @@ package bd2.model;
  */
 public class Prueba {
 	
+	// Attributes
+	private Integer puntaje;
+	private Leccion leccion;
+	
 	/**
 	 * Constructor de la clase Prueba
 	 * @param leccion
@@ -26,6 +30,7 @@ public class Prueba {
 		this.setLeccion(leccion);
 	}
 
+	// Accesors
 	public int getPuntaje() {
 		return puntaje;
 	}
@@ -43,9 +48,12 @@ public class Prueba {
 		this.leccion = leccion;
 	}
 
-	private Integer puntaje;
-	private Leccion leccion;
+	// Methods
 	
+	/**
+	 * Retorna un booleano indicando si la prueba esta aprobada.
+	 * @return
+	 */
 	public Boolean aprobada() {
 		return (this.puntaje >= 60);
 	} 

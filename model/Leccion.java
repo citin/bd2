@@ -9,6 +9,9 @@
 package bd2.model;
 
 public class Leccion {
+	// Attributes
+	private String nombre;
+	
 	/**
 	 * Constructor de la clase Leccion
 	 * @param nombre
@@ -17,8 +20,7 @@ public class Leccion {
 		super();
 		this.setNombre(nombre);
 	}
-	// Attributes
-	private String nombre;
+
 
 	// Accesors
 	public void setNombre(String nombre) {

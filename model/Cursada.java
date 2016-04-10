@@ -22,6 +22,12 @@ import java.util.Iterator;
 
 public class Cursada {
 
+	// Attributes
+	private Date inicio;
+	private Usuario usuario;
+	private Collection<Prueba> pruebas;
+	private Curso curso;
+	
 	/**
 	 * Constructor de la clase Cursada
 	 * 
@@ -38,12 +44,6 @@ public class Cursada {
 		this.setCurso(curso);
 		this.setPruebas(new ArrayList<Prueba>());
 	}
-
-	// Attributes
-	private Date inicio;
-	private Usuario usuario;
-	private Collection<Prueba> pruebas;
-	private Curso curso;
 	
 	// Accesors
 	public Date getInicio() {
@@ -70,8 +70,23 @@ public class Cursada {
 	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
+	public Idioma getIdioma() {
+		return curso.getIdioma();
+	}
+	public int getNivel(){
+		return curso.getNivel();
+	}
+
 	
 	// Methods
+	/**
+	 * Agrega una prueba a la cursada.
+	 * @param prueba
+	 */
+	public void agregarPrueba(Prueba prueba){
+		pruebas.add(prueba);
+	}
+	
 	/**
 	 * Retorna un booleano indicando si la cursada esta finalizada
 	 * 
@@ -89,10 +104,10 @@ public class Cursada {
 		return aux;			
 	}
 	
-	public void agregarPrueba(Prueba prueba){
-		pruebas.add(prueba);
-	}
-	
+	/**
+	 * Retorna una coleccion de las lecciones aprobadas que posee esta cursada.
+	 * @return
+	 */
 	public Collection<Leccion> leccionesAprobadas(){
 		Collection<Leccion> aux = new ArrayList<Leccion>();
 		
@@ -103,12 +118,5 @@ public class Cursada {
 			}
 		}
 		return aux; 
-	}
-	public Idioma getIdioma() {
-		return curso.getIdioma();
-	}
-	public int getNivel(){
-		return curso.getNivel();
-	}
-	
+	}	
 }
