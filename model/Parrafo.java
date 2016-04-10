@@ -28,18 +28,24 @@ public class Parrafo {
 	public Parrafo(String nuevoTexto, Documento nuevoDocuemnto){
 		this.setTexto(nuevoTexto);
 		this.setDocumento(nuevoDocuemnto);
-	}
+	} //Cierre del constructor
 	
-	// Accesors
+	// Método para recupera el texto del objeto parrafo
 	public String getTexto() {
 		return texto;
 	}
+	
+	// Método para setear un texto al objeto parrafo
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
+	
+	// Método para recupera el objeto documento del objeto parrafo
 	public Documento getDocumento() {
 		return documento;
 	}
+	
+	// Método para setear un objeto documento al objeto parrafo
 	public void setDocumento(Documento documento) {
 		this.documento = documento;
 	}

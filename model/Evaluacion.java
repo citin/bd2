@@ -17,8 +17,8 @@ import java.util.Date;
 public class Evaluacion extends Tarea {
 	
 	// Attributes
-	private Integer puntaje;
-	private Traduccion traduccion;
+	private Integer puntaje;       // puntaje de la evalución
+	private Traduccion traduccion; // traducción de la evaluación
 	
 	/**
 	 * Constructor de la clase Evaluacion
@@ -27,7 +27,7 @@ public class Evaluacion extends Tarea {
 	 * @param descripcion
 	 * @param completa
 	 * @param traduccion
-	 * @param puntaje
+	 * @param puntaje 
 	 */
 	
 	public Evaluacion(Date fecha, String descripcion, Boolean completa, Traduccion traduccion, Integer puntaje){
@@ -36,21 +36,24 @@ public class Evaluacion extends Tarea {
 		this.setTraduccion(traduccion);
 		this.setCompleta(completa);
 		this.setPuntaje(puntaje);
-	}
+	} //Cierre del constructor
 	
-	// Accesors
+	// Método para recuperar el puntaje del objeto evaluacion
 	public int getPuntaje() {
 		return this.puntaje;
 	}
 	
+	// Método para setear un puntaje al objeto evaluacion
 	public void setPuntaje(Integer puntaje) {
 		this.puntaje = puntaje;
 	}
 	
+	// Método para recuperar la traduccion del objeto evaluacion
 	public Traduccion getTraduccion() {
 		return traduccion;
 	}
 	
+	// Método para setear un objeto traduccion al objeto evaluacion
 	public void setTraduccion(Traduccion traduccion) {
 		this.traduccion = traduccion;
 	}
