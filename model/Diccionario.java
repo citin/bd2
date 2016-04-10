@@ -29,9 +29,9 @@ public class Diccionario {
 	 */
 	
 	public Diccionario(Idioma nuevoIdioma, String nuevaEdicion){
-		this.idioma = nuevoIdioma;
-		this.edicion = nuevaEdicion;
-		this.definiciones = new Hashtable<String, String>();
+		this.setIdioma(nuevoIdioma);
+		this.setEdicion(nuevaEdicion);
+		this.setDefiniciones(new Hashtable<String, String>());
 	}
 	
 	public Map<String, String> getDefiniciones() {

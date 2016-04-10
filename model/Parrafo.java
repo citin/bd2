@@ -25,8 +25,8 @@ public class Parrafo {
 	 */
 	
 	public Parrafo(String nuevoTexto, Documento nuevoDocuemnto){
-		this.texto = nuevoTexto;
-		this.documento = nuevoDocuemnto;
+		this.setTexto(nuevoTexto);
+		this.setDocumento(nuevoDocuemnto);
 	}
 	
 	public String getTexto() {

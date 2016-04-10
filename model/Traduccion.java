@@ -35,12 +35,12 @@ public class Traduccion extends Tarea {
 	 */
 	
 	public Traduccion(Date fecha, String descripcion, Boolean completa, String texto, Parrafo parrafo, Idioma idioma){
-		this.fecha = fecha;
-		this.descripcion = descripcion;
-		this.completa = completa;
-		this.texto = texto;
-		this.parrafo = parrafo;
-		this.idioma = idioma;
+		this.setFecha(fecha);
+		this.setDescripcion(descripcion);
+		this.setCompleta(completa);
+		this.setTexto(texto);
+		this.setParrafo(parrafo);
+		this.setIdioma(idioma);
 	}
 
 	public Date getFecha() {

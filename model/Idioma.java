@@ -24,8 +24,8 @@ public class Idioma {
 	 */
 	
 	public Idioma(String nombre){
-		this.nombre = nombre;
-		this.diccionario = new Diccionario(this, "Edicion 1");
+		this.setNombre(nombre);
+		this.setDiccionario(new Diccionario(this, "Edicion 1"));
 	}
 	
 	public String getNombre() {
