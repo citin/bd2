@@ -1,5 +1,5 @@
 /**
- * Evaluacion.java
+ * Usuario.java
  * 
  * BBDD2 - Proyecto Integrador 
  * 
