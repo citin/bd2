@@ -1,10 +1,28 @@
+/**
+ * Evaluacion.java
+ * 
+ * BBDD2 - Proyecto Integrador 
+ * 
+ * Etapa 1
+ * 
+ */
 package bd2.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * @author Grupo10
+ *
+ */
 public class Curso {
-	
+	/**
+	 * Constructor de la clase Curso
+	 * 
+	 * @param nombre
+	 * @param idioma
+	 * @param nivel
+	 */
 	// new Curso("Introducción al ingles", ingles, 1);
 	public Curso(String nombre, Idioma idioma, Integer nivel) {
 		super();

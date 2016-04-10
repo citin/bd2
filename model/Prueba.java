@@ -1,11 +1,27 @@
+/**
+ * Evaluacion.java
+ * 
+ * BBDD2 - Proyecto Integrador 
+ * 
+ * Etapa 1
+ * 
+ */
 package bd2.model;
-
+/**
+ * @author Grupo10
+ *
+ */
 public class Prueba {
-	// new Prueba(vocabularioBasico, 60);
+	
+	/**
+	 * Constructor de la clase Prueba
+	 * @param leccion
+	 * @param puntaje
+	 */
 	public Prueba(Leccion leccion, Integer puntaje) {
 		super();
 		verificarPuntaje(puntaje);
-		
+
 		this.puntaje = puntaje;
 		this.leccion = leccion;
 	}
@@ -34,6 +50,12 @@ public class Prueba {
 		return (this.puntaje >= 60);
 	} 
 	
+	/**
+	 * Verifica que el puntaje este entre 0 y 100
+	 * Levanta excepcion
+	 * @param puntajeOk
+	 * @return
+	 */
 	private Boolean verificarPuntaje(int puntajeOk){
 		if (puntajeOk < 0) {
 			throw new RuntimeException("No se puede usar valores negativos como puntaje de una prueba.");

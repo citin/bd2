@@ -1,8 +1,32 @@
+/**
+ * Evaluacion.java
+ * 
+ * BBDD2 - Proyecto Integrador 
+ * 
+ * Etapa 1
+ * 
+ */
 package bd2.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * @author Grupo10
+ *
+ */
 public class Sitio {
+	
+	/**
+	 * Constructor de la clase Sitio
+	 */
+	public Sitio() {
+		super();
+		this.documentos = new ArrayList<Documento>();
+		this.usuarios = new ArrayList<Usuario>();
+		this.cursos = new ArrayList<Curso>();
+	}
+	
 	private Collection<Documento> documentos;
 	private Collection<Usuario> usuarios;
 	private Collection<Curso> cursos;
@@ -22,9 +46,9 @@ public class Sitio {
 	public Collection<Documento> getDocumentos() {
 		return documentos;
 	}
-	//	public void setDocumentos(Collection<Documento> documentos) {
-	//		this.documentos = documentos;
-	//	}
+//		public void setDocumentos(Collection<Documento> documentos) {
+//			this.documentos = documentos;
+//		}
 	public Collection<Usuario> getUsuarios() {
 		return usuarios;
 	}

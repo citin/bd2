@@ -1,13 +1,26 @@
+/**
+ * Evaluacion.java
+ * 
+ * BBDD2 - Proyecto Integrador 
+ * 
+ * Etapa 1
+ * 
+ */
 package bd2.model;
 
 public class Leccion {
+	/**
+	 * Constructor de la clase Leccion
+	 * @param nombre
+	 */
 	public Leccion(String nombre) {
 		super();
 		this.nombre = nombre;
 	}
-
+	// Attributes
 	private String nombre;
 
+	// Accesors
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}

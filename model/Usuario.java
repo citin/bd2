@@ -1,3 +1,11 @@
+/**
+ * Evaluacion.java
+ * 
+ * BBDD2 - Proyecto Integrador 
+ * 
+ * Etapa 1
+ * 
+ */
 package bd2.model;
 
 import java.util.ArrayList;
@@ -5,6 +13,10 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
 
+/**
+ * @author Grupo10
+ *
+ */
 public class Usuario {
 	private String email;
 	private String nombre;
@@ -12,6 +24,13 @@ public class Usuario {
 	private Collection<Cursada> cursadasRealizadas;
 	private Collection<Traduccion> traducciones;
 
+	/**
+	 * Constructor de la clase Usuario
+	 * 
+	 * @param email
+	 * @param nombre
+	 * @param fechaDeCreacion
+	 */
 	// CONSTRUCTOR
 	public Usuario(String email, String nombre, Date fechaDeCreacion) {
 		super();
@@ -22,9 +41,11 @@ public class Usuario {
 	}
 	
 	// METHODS
-	
-	// Retorna el nivel máximo entre las cursadas aprobadas 
-	// por el usuario, del Idioma recibido por parámetro.
+	/**
+	 * Retorna el nivel máximo entre las cursadas aprobadas
+	 * @param idioma
+	 * @return
+	 */
 	public int nivel(Idioma idioma){
 		int aux = 0;
 		for (Iterator<Cursada> cursadasIterador = cursadasRealizadas.iterator(); cursadasIterador.hasNext();) {
@@ -78,6 +99,12 @@ public class Usuario {
 		traducciones.add(traduccion);
 	}
 	
+	//Methods
+	/**
+	 * Retorna todas las cursadas aprobadas para un idioma
+	 * @param idioma
+	 * @return
+	 */
 	public Collection<Cursada> cursadasAprobadas(Idioma idioma) {
 		Collection<Cursada> aux = new ArrayList<Cursada>();
 		for (Iterator<Cursada> iCursada = cursadasRealizadas.iterator(); iCursada.hasNext();) {

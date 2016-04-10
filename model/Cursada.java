@@ -1,12 +1,34 @@
+/**
+ * Evaluacion.java
+ * 
+ * BBDD2 - Proyecto Integrador 
+ * 
+ * Etapa 1
+ * 
+ */
 package bd2.model;
 
 import java.util.ArrayList;
+
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
 
+
+/**
+ * @author Grupo10
+ *
+ */
+
 public class Cursada {
 
+	/**
+	 * Constructor de la clase Cursada
+	 * 
+	 * @param curso
+	 * @param inicio
+	 * @param usuario
+	 */
 	// new Cursada(cursoInglesBasico, hoy, sven);
 	public Cursada(Curso curso, Date inicio, Usuario usuario) {
 		super();
@@ -50,7 +72,11 @@ public class Cursada {
 	}
 	
 	// Methods
-	
+	/**
+	 * Retorna un booleano indicando si la cursada esta finalizada
+	 * 
+	 * @return
+	 */
 	public Boolean finalizada() {
 		Boolean aux= true;
 		for (Iterator<Leccion> iLeccion = curso.getLecciones().iterator(); iLeccion.hasNext();) {
