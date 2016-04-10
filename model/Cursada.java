@@ -32,11 +32,11 @@ public class Cursada {
 	// new Cursada(cursoInglesBasico, hoy, sven);
 	public Cursada(Curso curso, Date inicio, Usuario usuario) {
 		super();
-		this.inicio = inicio;
-		this.usuario = usuario;
+		this.setInicio(inicio);
+		this.setUsuario(usuario);
 		usuario.agregarCursada(this);
-		this.curso = curso;
-		this.pruebas = new ArrayList<Prueba>();
+		this.setCurso(curso);
+		this.setPruebas(new ArrayList<Prueba>());
 	}
 
 	// Attributes

@@ -34,10 +34,10 @@ public class Usuario {
 	// CONSTRUCTOR
 	public Usuario(String email, String nombre, Date fechaDeCreacion) {
 		super();
-		this.email = email;
-		this.nombre = nombre;
-		this.fechaDeCreacion = fechaDeCreacion;
-		this.cursadasRealizadas = new ArrayList<Cursada>();
+		this.setEmail(email);
+		this.setNombre(nombre);
+		this.setFechaDeCreacion(fechaDeCreacion);
+		this.setCursadasRealizadas(new ArrayList<Cursada>());
 	}
 	
 	// METHODS

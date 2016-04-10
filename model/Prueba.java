@@ -22,8 +22,8 @@ public class Prueba {
 		super();
 		verificarPuntaje(puntaje);
 
-		this.puntaje = puntaje;
-		this.leccion = leccion;
+		this.setPuntaje(puntaje);
+		this.setLeccion(leccion);
 	}
 
 	public int getPuntaje() {

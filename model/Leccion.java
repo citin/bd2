@@ -15,7 +15,7 @@ public class Leccion {
 	 */
 	public Leccion(String nombre) {
 		super();
-		this.nombre = nombre;
+		this.setNombre(nombre);
 	}
 	// Attributes
 	private String nombre;

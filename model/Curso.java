@@ -26,10 +26,10 @@ public class Curso {
 	// new Curso("Introducción al ingles", ingles, 1);
 	public Curso(String nombre, Idioma idioma, Integer nivel) {
 		super();
-		this.nombre = nombre;
-		this.nivel = nivel;
-		this.idioma = idioma;
-		this.lecciones = new ArrayList<Leccion>();
+		this.setNombre(nombre);
+		this.setNivel(nivel);
+		this.setIdioma(idioma);
+		this.setLecciones( new ArrayList<Leccion>());
 	}
 
 	// Attributes

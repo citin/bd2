@@ -29,8 +29,8 @@ public class Moderador extends Usuario {
 		public Moderador(String email, String nombre, Date fechaDeCreacion) {
 		super(email, nombre, fechaDeCreacion);
 		
-		this.evaluaciones = new ArrayList<Evaluacion>(); 
-		this.idiomas = new ArrayList<Idioma>();
+		this.setEvaluaciones(new ArrayList<Evaluacion>()); 
+		this.setIdiomas(new ArrayList<Idioma>());
 	}
 		
 		// Attributes
