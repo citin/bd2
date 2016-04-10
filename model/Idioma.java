@@ -14,6 +14,7 @@ package bd2.model;
  */
 public class Idioma {
 	
+	// Attributes
 	private String nombre;
 	private Diccionario diccionario;
 	
@@ -27,6 +28,8 @@ public class Idioma {
 		this.setNombre(nombre);
 		this.setDiccionario(new Diccionario(this, "Edicion 1"));
 	}
+	
+	// Accesors
 	
 	public String getNombre() {
 		return nombre;

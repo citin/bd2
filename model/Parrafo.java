@@ -14,6 +14,7 @@ package bd2.model;
  */
 public class Parrafo {
 	
+	// Attributes
 	private String texto;
 	private Documento documento;
 	
@@ -29,6 +30,7 @@ public class Parrafo {
 		this.setDocumento(nuevoDocuemnto);
 	}
 	
+	// Accesors
 	public String getTexto() {
 		return texto;
 	}

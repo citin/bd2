@@ -16,6 +16,7 @@ import java.util.Date;
  */
 public class Evaluacion extends Tarea {
 	
+	// Attributes
 	private Integer puntaje;
 	private Traduccion traduccion;
 	
@@ -37,7 +38,7 @@ public class Evaluacion extends Tarea {
 		this.setPuntaje(puntaje);
 	}
 	
-	
+	// Accesors
 	public int getPuntaje() {
 		return this.puntaje;
 	}

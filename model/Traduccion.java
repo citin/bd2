@@ -16,6 +16,8 @@ import java.util.Date;
  */
 public class Traduccion extends Tarea {
 	
+	
+	// Attributes
 	private Date fecha;
 	private String descripcion;
 	private Boolean completa;
@@ -43,6 +45,8 @@ public class Traduccion extends Tarea {
 		this.setIdioma(idioma);
 	}
 
+	// Accesors
+	
 	public Date getFecha() {
 		return fecha;
 	}

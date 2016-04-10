@@ -17,6 +17,7 @@ import java.util.Collection;
  */
 public class Documento {
 	
+	// Attributes
 	private String nombre;
 	private Integer complejidad;
 	private Idioma idioma;
@@ -36,6 +37,8 @@ public class Documento {
 		this.parrafos = new ArrayList<Parrafo>();
 	}
 	
+	// Accesors
+
 	public String getNombre() {
 		return nombre;
 	}

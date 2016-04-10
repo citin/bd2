@@ -17,6 +17,7 @@ import java.util.Map;
  */
 public class Diccionario {
 	
+	// Attributes
 	private Map<String, String> definiciones;
 	private String edicion;
 	private Idioma idioma;
@@ -34,6 +35,7 @@ public class Diccionario {
 		this.setDefiniciones(new Hashtable<String, String>());
 	}
 	
+	// Accesors
 	public Map<String, String> getDefiniciones() {
 		return definiciones;
 	}
