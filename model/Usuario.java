@@ -90,7 +90,7 @@ public class Usuario {
 		for (Iterator<Cursada> cursadasIterador = cursadasRealizadas.iterator(); cursadasIterador.hasNext();) {
 			Cursada cursada = (Cursada) cursadasIterador.next();
 			
-			if ((cursada.finalizada()) && (cursada.getIdioma() == idioma)) {
+			if ((cursada.finalizada()) && (cursada.getIdioma().equals(idioma))) {
 				if (cursada.getNivel() > aux) {
 					aux = cursada.getNivel();
 				}
@@ -108,7 +108,7 @@ public class Usuario {
 		Collection<Cursada> aux = new ArrayList<Cursada>();
 		for (Iterator<Cursada> iCursada = cursadasRealizadas.iterator(); iCursada.hasNext();) {
 			Cursada cursada = (Cursada) iCursada.next();
-			if (cursada.finalizada() && (cursada.getIdioma() == idioma)) {
+			if (cursada.finalizada() && (cursada.getIdioma().equals(idioma))) {
 				aux.add(cursada);
 			}
 		}

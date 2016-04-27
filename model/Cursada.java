@@ -14,7 +14,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
 
-
 /**
  * @author Grupo10
  *
@@ -22,7 +21,6 @@ import java.util.Iterator;
 
 public class Cursada {
 
-	// Attributes
 	private Date inicio;
 	private Usuario usuario;
 	private Collection<Prueba> pruebas;
