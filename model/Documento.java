@@ -17,14 +17,39 @@ import java.util.Collection;
  */
 public class Documento {
 	
-	// Attributes
-	private String nombre; 				  // Nombre del documento
-	private Integer complejidad; 		  // Nivel de complejidad del documento
-	private Idioma idioma; 				  // Idioma que entiende el Documento
-	private Collection<Parrafo> parrafos; // Colección de Parrafos
+	/**
+	 * Variable de instancia nombre. 
+	 * Nombre del documento
+	 */
+	private String nombre; 
 	
 	/**
-	 * Constructor de la clase Documento
+	 * Variable de instancia complejidad.
+	 * Nivel de complejidad del documento
+	 */
+	private Integer complejidad;
+	
+	/**
+	 * Variable de instancia idioma
+	 * Idioma que entiende el Documento
+	 */
+	private Idioma idioma;
+	
+	/**
+	 * Variable de instancia parrafos
+	 * Colección de objeros parrafos
+	 */
+	private Collection<Parrafo> parrafos;
+	
+	/**
+	 * Constructor por defecto para la clase Documento.
+	 */
+	public Documento(){
+		
+	}
+	
+	/**
+	 * Constructor con argumentos para la clase Documento
 	 * 
 	 * @param nuevoNombre
 	 * @param nuevoIdioma
@@ -35,46 +60,71 @@ public class Documento {
 		this.complejidad = 0;		
 		this.idioma = nuevoIdioma;
 		this.parrafos = new ArrayList<Parrafo>();
-	} //Cierre del constructor
+	}
 	
-	// Método para recupera el nombre del objeto documento
+	/**
+	 * Método para recupera el nombre del objeto documento
+	 * @return String
+	 */
 	public String getNombre() {
 		return nombre;
 	}
 	
-	// Método para setear un nombre al objeto documento
+	/**
+	 * Método para setear un nombre al objeto documento
+	 * @param nombre
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
-	// Método para recupera la complejidad del objeto documento
+	/**
+	 * Método para recupera la complejidad del objeto documento
+	 * @return Integer
+	 */
 	public Integer getComplejidad() {
 		return complejidad;
 	}
 	
-	// Método para setear una complejidad al objeto documento
+	/**
+	 * Método para setear una complejidad al objeto documento
+	 * @param complejidad
+	 */
 	public void setComplejidad(Integer complejidad) {
 		this.complejidad = complejidad;
 	}
 	
-	// Método para recuperar el Idioma del objeto documento
+	/**
+	 * Método para recuperar el Idioma del objeto documento
+	 * @return Idioma
+	 */
 	public Idioma getIdioma() {
 		return idioma;
 	}
 	
-	// Método para setear un Idioma al objeto documento
+	/**
+	 * Método para setear un Idioma al objeto documento
+	 * @param idioma
+	 */
 	public void setIdioma(Idioma idioma) {
 		this.idioma = idioma;
 	}
 	
-	// Método para agregar un objeto Parrafo a la coleccion de parrafos del objeto documento
+	/**
+	 * Método para agregar un objeto Parrafo a la coleccion de parrafos del objeto documento
+	 * @param p
+	 * @return Parrafo
+	 */
 	public Parrafo agregarParrafo(String p){
 		Parrafo nuevoParrafo = new Parrafo(p, this);
 		this.parrafos.add(nuevoParrafo);
 		return nuevoParrafo;
 	}
 	
-	// Método para recuperar la colección de parrafos
+	/**
+	 * Metodo que retorna la collecion de parrafos
+	 * @return Collection
+	 */
 	public Collection<Parrafo> getParrafos(){
 		return this.parrafos;
 	}

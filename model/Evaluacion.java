@@ -11,29 +11,37 @@ package bd2.model;
 import java.util.Date;
 
 /**
- * La clase Evaludacion se utiliza para instanciar a los objetos evaluacion
+ * Esta es la clase Evaludacion se utiliza para instanciar a los objetos evaluacion
+ * 
  * @author Grupo10
- *
  */
 public class Evaluacion extends Tarea {
 	
 	/**
-	 * Puntaje
+	 * Variable de instancia puntaje
 	 */
 	private Integer puntaje;
+	
 	/**
-	 * traduccion
+	 * Variable de instancia traduccion
 	 */
 	private Traduccion traduccion; 
 	
 	/**
-	 * Constructor de la clase Evaluacion
+	 * Constructor por defecto para la clase Evaluacion.
+	 */
+	public Evaluacion(){
+		
+	}
+	
+	/**
+	 * Este es el constructor con argumentos para la clase Evaluacion.
 	 * 
 	 * @param fecha
 	 * @param descripcion
 	 * @param completa
 	 * @param traduccion
-	 * @param puntaje 
+	 * @param puntaje
 	 */
 	
 	public Evaluacion(Date fecha, String descripcion, Boolean completa, Traduccion traduccion, Integer puntaje){

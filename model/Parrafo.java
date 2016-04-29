@@ -14,13 +14,25 @@ package bd2.model;
  */
 public class Parrafo {
 	
-	// Attributes
+	/**
+	 * Variable de instancia texto
+	 */
 	private String texto;
+	
+	/**
+	 * Variable de instancia documento
+	 */
 	private Documento documento;
 	
 	/**
-	 * Constructor de la clase Parrafo
-	 * 
+	 * Constructor por defecto para la clase Parrafo.
+	 */
+	public Parrafo(){
+		
+	}
+	
+	/**
+	 * Constructor con argumentos para la clase Parrafo
 	 * @param nuevoTexto
 	 * @param nuevoDocuemnto
 	 */
@@ -28,24 +40,36 @@ public class Parrafo {
 	public Parrafo(String nuevoTexto, Documento nuevoDocuemnto){
 		this.setTexto(nuevoTexto);
 		this.setDocumento(nuevoDocuemnto);
-	} //Cierre del constructor
+	} 
 	
-	// Método para recupera el texto del objeto parrafo
+	/**
+	 * Método para recupera el texto del objeto parrafo
+	 * @return String
+	 */
 	public String getTexto() {
 		return texto;
 	}
 	
-	// Método para setear un texto al objeto parrafo
+	/**
+	 * Método para setear un texto al objeto parrafo
+	 * @param texto
+	 */
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
 	
-	// Método para recupera el objeto documento del objeto parrafo
+	/**
+	 * Método para recupera el objeto documento del objeto parrafo
+	 * @return Documento
+	 */
 	public Documento getDocumento() {
 		return documento;
 	}
 	
-	// Método para setear un objeto documento al objeto parrafo
+	/**
+	 * Método para setear un objeto documento al objeto parrafo
+	 * @param documento
+	 */
 	public void setDocumento(Documento documento) {
 		this.documento = documento;
 	}

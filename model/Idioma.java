@@ -9,17 +9,32 @@
 package bd2.model;
 
 /**
+ * Esta es la clase Idioma que se utiliza para instanciar a los objetos idiomas
+ * 
  * @author Grupo10
  *
  */
 public class Idioma {
 	
-	// Attributes
-	private String nombre;  // Nombre del Idioma
+	/**
+	 * Variable de instancia nombre
+	 */
+	private String nombre;
+	
+	/**
+	 * Variable de instancia diccionario
+	 */
 	private Diccionario diccionario;
 	
 	/**
-	 * Constructoir de la clase idioma
+	 * Este es el constructor por defecto para la clase Idioma.
+	 */
+	public Idioma(){
+		
+	}
+	
+	/**
+	 * Constructor con argumentos para la clase Idioma
 	 * 
 	 * @param nombre 
 	 */
@@ -27,24 +42,36 @@ public class Idioma {
 	public Idioma(String nombre){
 		this.setNombre(nombre);  
 		this.setDiccionario(new Diccionario(this, "Edicion 1")); // Por defecto se inicializa en la Edicion 1
-	} //Cierre del constructor
+	}
 	
-	// Método para recuperar el nombre del objeto idioma	
+	/**
+	 * Método para recuperar el nombre del objeto idioma	
+	 * @return String
+	 */
 	public String getNombre() {
 		return nombre;
 	}
 	
-	// Método para setear un nombre al objeto idioma	
+	/**
+	 * Método para setear un nombre al objeto idioma	
+	 * @param nombre
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
-	// Método para recuperar el diccionario del objeto idioma	
+	/**
+	 * Método para recuperar el diccionario del objeto idioma	
+	 * @return Diccionario
+	 */
 	public Diccionario getDiccionario() {
 		return diccionario;
 	}
 	
-	// Método para setear un diccionario al objeto idioma	
+	/**
+	 * Método para setear un diccionario al objeto idioma	
+	 * @param diccionario
+	 */
 	public void setDiccionario(Diccionario diccionario) {
 		this.diccionario = diccionario;
 	}
