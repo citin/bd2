@@ -11,14 +11,20 @@ package bd2.model;
 import java.util.Date;
 
 /**
+ * La clase Evaludacion se utiliza para instanciar a los objetos evaluacion
  * @author Grupo10
  *
  */
 public class Evaluacion extends Tarea {
 	
-	// Attributes
-	private Integer puntaje;       // puntaje de la evalución
-	private Traduccion traduccion; // traducción de la evaluación
+	/**
+	 * Puntaje
+	 */
+	private Integer puntaje;
+	/**
+	 * traduccion
+	 */
+	private Traduccion traduccion; 
 	
 	/**
 	 * Constructor de la clase Evaluacion
@@ -36,24 +42,36 @@ public class Evaluacion extends Tarea {
 		this.setTraduccion(traduccion);
 		this.setCompleta(completa);
 		this.setPuntaje(puntaje);
-	} //Cierre del constructor
+	} 
 	
-	// Método para recuperar el puntaje del objeto evaluacion
+	/**
+	 * Método para recuperar el puntaje del objeto evaluacion
+	 * @return int
+	 */
 	public int getPuntaje() {
 		return this.puntaje;
 	}
 	
-	// Método para setear un puntaje al objeto evaluacion
+	/**
+	 * Método para setear un puntaje al objeto evaluacion
+	 * @param puntaje
+	 */
 	public void setPuntaje(Integer puntaje) {
 		this.puntaje = puntaje;
 	}
 	
-	// Método para recuperar la traduccion del objeto evaluacion
+	/**
+	 * Método para recuperar la traduccion del objeto evaluacion
+	 * @return Traduccion
+	 */
 	public Traduccion getTraduccion() {
 		return traduccion;
 	}
 	
-	// Método para setear un objeto traduccion al objeto evaluacion
+	/**
+	 * Método para setear un objeto traduccion al objeto evaluacion
+	 * @param traduccion
+	 */
 	public void setTraduccion(Traduccion traduccion) {
 		this.traduccion = traduccion;
 	}
