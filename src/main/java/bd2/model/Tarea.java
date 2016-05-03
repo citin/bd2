@@ -1,56 +1,90 @@
 /**
+ * Tarea.java
+ * 
+ * BBDD2 - Proyecto Integrador 
+ * 
+ * Etapa 1
  * 
  */
 package bd2.model;
 
-/**
- * @author bd2
- *
- */
 import java.util.Date;
 
+/**
+ * Esta es la clase Abstracta Tarea de las subclases Evaluacion y Traduccion
+ * 
+ * @author Grupo10
+ *
+ */
 public abstract class Tarea {
-
+	
+	/**
+	 * Variable de instancia fecha
+	 */
 	protected Date fecha;
+	
+	/**
+	 * Variable de instancia descripcion
+	 */
 	protected String descripcion;
-	protected Boolean completa = false;;
-	private long id;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 	
-	public Tarea(Date fecha, String descripcion, Boolean completa) {
-		super();
-		this.fecha = fecha;
-		this.descripcion = descripcion;
-		this.completa = completa;
-	}
+	/**
+	 * Variable de instancia completa
+	 */
+	protected Boolean completa;
 	
+	
+	/**
+	 * Método para recuperar la fecha del objeto tarea
+	 * @return Date
+	 */
 	public Date getFecha() {
 		return fecha;
 	}
+	
+	/**
+	 * Método para setear la fecha al objeto tarea
+	 * @param fecha
+	 */
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
+	
+	/**
+	 * Método para recuperar la descripcion del objeto tarea
+	 * @return String
+	 */
 	public String getDescripcion() {
 		return descripcion;
 	}
+	
+	/**
+	 * Método para setear una descripcion al objeto tarea
+	 * @param descripcion
+	 */
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	
+	/**
+	 * Método booleano para completar la tarea, la cual por defecto esta en false
+	 */
+	public void completar() {
+		this.completa = true;
+	}
+	
+	/**
+	 * Método booleano que retorna true o false dependiendo de si el objeto tarea esta completo o no
+	 * @return Boolean
+	 */
 	public Boolean getCompleta() {
 		return completa;
 	}
+	/**
+	 * Método booleano que pone en true o false para indicar si el objeto tarea esta completo o no
+	 * @param completa
+	 */
 	public void setCompleta(Boolean completa) {
 		this.completa = completa;
 	}
-	public void completar(){
-		this.setCompleta(false);
-	}
-	
 }

@@ -1,64 +1,72 @@
+/**
+ * Sitio.java
+ * 
+ * BBDD2 - Proyecto Integrador 
+ * 
+ * Etapa 1
+ * 
+ */
 package bd2.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 
 /**
- * @author bd2
+ * @author Grupo10
  *
  */
 public class Sitio {
 
-	private Collection<Usuario> usuarios = new HashSet<Usuario>();
-	private Collection<Curso> cursos = new HashSet<Curso>();
-	private Collection<Documento> documentos = new HashSet<Documento>();
-	private long id;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
+	// Attributes
+	private Collection<Documento> documentos;
+	private Collection<Usuario> usuarios;
+	private Collection<Curso> cursos;
+	
+	/**
+	 * Constructor de la clase Sitio
+	 */
 	public Sitio() {
+		super();
+		this.setDocumentos(new ArrayList<Documento>());
+		this.setUsuarios(new ArrayList<Usuario>());
+		this.setCursos( new ArrayList<Curso>());
 	}
 
-	public Collection<Usuario> getUsuarios() {
-		return usuarios;
+	// Accesors
+	public void registrarUsuario(Usuario user){
+		usuarios.add(user);
 	}
 
-	public void registrarUsuario(Usuario usuario) {
-		this.getUsuarios().add(usuario);
+	public void agregarCurso(Curso curso){
+		cursos.add(curso);
 	}
 
-	public Collection<Curso> getCursos() {
-		return cursos;
-	}
-
-	public void agregarCurso(Curso curso) {
-		this.getCursos().add(curso);
-	}
-
-	public void agregarDocumento(Documento documento) {
-		this.getDocumentos().add(documento);
-	}
-
-	public void setUsuarios(Collection<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
-
-	public void setCursos(Collection<Curso> cursos) {
-		this.cursos = cursos;
+	public void agregarDocumento(Documento documento){
+		documentos.add(documento);
 	}
 
 	public Collection<Documento> getDocumentos() {
 		return documentos;
 	}
 
-	public void setDocumentos(Collection<Documento> documentos) {
+	public Collection<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public Collection<Curso> getCursos() {
+		return cursos;
+	}
+
+	// Private Accesors
+	private void setDocumentos(Collection<Documento> documentos) {
 		this.documentos = documentos;
+	}
+	public void setUsuarios(Collection<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	public void setCursos(Collection<Curso> cursos) {
+		this.cursos = cursos;
 	}
 
 }

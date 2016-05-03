@@ -1,40 +1,42 @@
-package bd2.model;
-
 /**
- * @author bd2
+ * Prueba.java
+ * 
+ * BBDD2 - Proyecto Integrador 
+ * 
+ * Etapa 1
+ * 
+ */
+package bd2.model;
+/**
+ * @author Grupo10
  *
  */
 public class Prueba {
-	protected int puntaje;
-	protected Leccion leccion;
-	private long id;
-
-	public Prueba(Leccion leccion, Integer puntaje) throws Exception {
-		this.setLeccion(leccion);
-		this.setPuntaje(puntaje);
-	}
 	
-	public Prueba() throws Exception {
+	// Attributes
+	private Integer puntaje;
+	private Leccion leccion;
+	
+	/**
+	 * Constructor de la clase Prueba
+	 * @param leccion
+	 * @param puntaje
+	 */
+	public Prueba(Leccion leccion, Integer puntaje) {
 		super();
-	}
-	
-	public long getId() {
-		return id;
+		verificarPuntaje(puntaje);
+
+		this.setPuntaje(puntaje);
+		this.setLeccion(leccion);
 	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
+	// Accesors
 	public int getPuntaje() {
 		return puntaje;
 	}
 
-	public void setPuntaje(int puntaje) throws Exception {
-		if (puntaje < 0)
-			throw new Exception(
-					"No se puede usar valores negativos como puntaje de una prueba.");
-		if (puntaje > 100)
-			throw new Exception("No se puede usar valores mayores a 100 como puntaje de una prueba.");
+	public void setPuntaje(Integer puntaje) {
+		verificarPuntaje(puntaje);
 		this.puntaje = puntaje;
 	}
 
@@ -46,7 +48,31 @@ public class Prueba {
 		this.leccion = leccion;
 	}
 
+	// Methods
+	
+	/**
+	 * Retorna un booleano indicando si la prueba esta aprobada.
+	 * @return
+	 */
 	public Boolean aprobada() {
-		return this.getPuntaje() >= 60;
+		return (this.puntaje >= 60);
+	} 
+	
+	/**
+	 * Verifica que el puntaje este entre 0 y 100
+	 * Levanta excepcion
+	 * @param puntajeOk
+	 * @return
+	 */
+	private Boolean verificarPuntaje(int puntajeOk){
+		if (puntajeOk < 0) {
+			throw new RuntimeException("No se puede usar valores negativos como puntaje de una prueba.");
+		} else {
+		if (puntajeOk > 100) {
+			throw new RuntimeException("No se puede usar valores mayores a 100 como puntaje de una prueba.");
+		}
+		}
+		return true;
 	}
+	
 }

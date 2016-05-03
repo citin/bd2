@@ -1,69 +1,76 @@
+/**
+ * Curso.java
+ * 
+ * BBDD2 - Proyecto Integrador 
+ * 
+ * Etapa 1
+ * 
+ */
 package bd2.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 
 /**
- * @author bd2
+ * @author Grupo10
  *
  */
 public class Curso {
-	protected String nombre;
-	protected Idioma idioma;
-	protected int nivel;
-	protected Collection<Leccion> lecciones = new HashSet<Leccion>();
-	private long id;
-
-
-
-	public Curso(String nombre, Idioma idioma, int nivel) {
-		this.nombre = nombre;
-		this.nivel = nivel;
-		this.idioma = idioma;
+	
+	// Attributes
+	private String nombre;
+	private Integer nivel;
+	private Collection<Leccion> lecciones;
+	private Idioma idioma;
+	
+	/**
+	 * Constructor de la clase Curso
+	 * 
+	 * @param nombre
+	 * @param idioma
+	 * @param nivel
+	 */
+	// new Curso("Introducción al ingles", ingles, 1);
+	public Curso(String nombre, Idioma idioma, Integer nivel) {
+		super();
+		this.setNombre(nombre);
+		this.setNivel(nivel);
+		this.setIdioma(idioma);
+		this.setLecciones( new ArrayList<Leccion>());
 	}
 	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
+	// Accesors
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	public int getNivel() {
+	public Integer getNivel() {
 		return nivel;
 	}
-
-	public void setNivel(int nivel) {
+	public void setNivel(Integer nivel) {
 		this.nivel = nivel;
 	}
-
 	public Collection<Leccion> getLecciones() {
 		return lecciones;
 	}
-
 	public void setLecciones(Collection<Leccion> lecciones) {
 		this.lecciones = lecciones;
 	}
-
-	public void agregarLeccion(Leccion leccion) {
-		this.lecciones.add(leccion);
-	}
-
 	public Idioma getIdioma() {
 		return idioma;
 	}
-
 	public void setIdioma(Idioma idioma) {
 		this.idioma = idioma;
 	}
-
+	
+	// Methods
+	/**
+	 * Agrega una leccion al curso.
+	 * @param lec
+	 */
+	public void agregarLeccion(Leccion lec){
+		this.lecciones.add(lec);
+	}
 }

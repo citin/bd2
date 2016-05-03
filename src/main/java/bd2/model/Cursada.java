@@ -1,91 +1,120 @@
+/**
+ * Cursada.java
+ * 
+ * BBDD2 - Proyecto Integrador 
+ * 
+ * Etapa 1
+ * 
+ */
 package bd2.model;
 
 import java.util.ArrayList;
+
 import java.util.Collection;
 import java.util.Date;
-import java.util.HashSet;
+import java.util.Iterator;
 
 /**
- * @author bd2
+ * @author Grupo10
  *
  */
+
 public class Cursada {
-	protected Curso curso;
-	protected Date inicio;
-	protected Usuario usuario;
-	protected Collection<Prueba> pruebas = new HashSet<Prueba>();
-	private long id;
+
+	private Date inicio;
+	private Usuario usuario;
+	private Collection<Prueba> pruebas;
+	private Curso curso;
 	
+	/**
+	 * Constructor de la clase Cursada
+	 * 
+	 * @param curso
+	 * @param inicio
+	 * @param usuario
+	 */
+	// new Cursada(cursoInglesBasico, hoy, sven);
 	public Cursada(Curso curso, Date inicio, Usuario usuario) {
-		this.curso = curso;
-		this.inicio = inicio;
-		this.usuario = usuario;
+		super();
+		this.setInicio(inicio);
+		this.setUsuario(usuario);
 		usuario.agregarCursada(this);
+		this.setCurso(curso);
+		this.setPruebas(new ArrayList<Prueba>());
 	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public Curso getCurso() {
-		return curso;
-	}
-
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
-
+	
+	// Accesors
 	public Date getInicio() {
 		return inicio;
 	}
-
-	public Idioma getIdioma() {
-		return this.getCurso().getIdioma();
-	}
-
-	public int getNivel() {
-		return this.getCurso().getNivel();
-	}
-
 	public void setInicio(Date inicio) {
 		this.inicio = inicio;
 	}
-
-	public void agregarPrueba(Prueba prueba) {
-		this.pruebas.add(prueba);
+	public Usuario getUsuario() {
+		return usuario;
 	}
-
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	public Collection<Prueba> getPruebas() {
 		return pruebas;
 	}
-
 	public void setPruebas(Collection<Prueba> pruebas) {
 		this.pruebas = pruebas;
 	}
+	public Curso getCurso() {
+		return curso;
+	}
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+	public Idioma getIdioma() {
+		return curso.getIdioma();
+	}
+	public int getNivel(){
+		return curso.getNivel();
+	}
 
+	
+	// Methods
+	/**
+	 * Agrega una prueba a la cursada.
+	 * @param prueba
+	 */
+	public void agregarPrueba(Prueba prueba){
+		pruebas.add(prueba);
+	}
+	
+	/**
+	 * Retorna un booleano indicando si la cursada esta finalizada
+	 * 
+	 * @return
+	 */
 	public Boolean finalizada() {
-		Collection<Leccion> leccionesAprobadas = this.leccionesAprobadas();
-		Collection<Leccion> leccionesEsperadas = this.getCurso().getLecciones();
-		for (Leccion esperada : leccionesEsperadas)
-			if (!leccionesAprobadas.contains(esperada))
-				return false;
-		return true;
+		Boolean aux= true;
+		for (Iterator<Leccion> iLeccion = curso.getLecciones().iterator(); iLeccion.hasNext();) {
+			Leccion leccion = (Leccion) iLeccion.next();
+			if (!leccionesAprobadas().contains(leccion)) {
+				aux = false;
+				break;
+			}
+		}
+		return aux;			
 	}
-
-	public Collection<Leccion> leccionesAprobadas() {
-		Collection<Leccion> aprobadas = new ArrayList<Leccion>();
-		for (Prueba prueba : this.getPruebas())
-			if (prueba.aprobada())
-				aprobadas.add(prueba.getLeccion());
-		return aprobadas;
-	}
-
-	public Usuario getUsuario() {
-		return this.usuario;
-	}
-
+	
+	/**
+	 * Retorna una coleccion de las lecciones aprobadas que posee esta cursada.
+	 * @return
+	 */
+	public Collection<Leccion> leccionesAprobadas(){
+		Collection<Leccion> aux = new ArrayList<Leccion>();
+		
+		for (Iterator<Prueba> iPrueba = pruebas.iterator(); iPrueba.hasNext();) {			
+			Prueba prueba = (Prueba) iPrueba.next();
+			if (prueba.aprobada()) {
+				aux.add(prueba.getLeccion());
+			}
+		}
+		return aux; 
+	}	
 }
