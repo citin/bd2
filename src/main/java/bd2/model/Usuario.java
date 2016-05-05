@@ -18,12 +18,43 @@ import java.util.Iterator;
  *
  */
 public class Usuario {
-	// Attributes
+
+	/**
+	 * Variable de instancia email . 
+	 * email del usuario
+	 */
 	private String email;
+
+	/**
+	 * Variable de instancia nombre. 
+	 * nombre del usuario
+	 */
 	private String nombre;
+	
+	/**
+	 * Variable de instancia fecha de creacion. 
+	 * Fecha de creacion del usuario
+	 */
 	private Date fechaDeCreacion;
+
+	/**
+	 * Variable de instancia cursadas realizadas. 
+	 * Coleccion de cursadas realizadas por el usuario
+	 */
 	private Collection<Cursada> cursadasRealizadas;
+
+	/**
+	 * Variable de instancia traducciones. 
+	 * Coleccion de traducciones hechas por el usuario
+	 */
 	private Collection<Traduccion> traducciones;
+
+	/**
+	 * Constructor por defecto para la clase Usuario.
+	 */
+	public Usuario(){
+		
+	}
 
 	/**
 	 * Constructor de la clase Usuario
@@ -39,47 +70,105 @@ public class Usuario {
 		this.setFechaDeCreacion(fechaDeCreacion);
 		this.setCursadasRealizadas(new ArrayList<Cursada>());
 	}
-	
-	// SETTERS & GETTERS
-		public String getEmail() {
-			return email;
-		}
-		public void setEmail(String email) {
-			this.email = email;
-		}
-		public String getNombre() {
-			return nombre;
-		}
-		public void setNombre(String nombre) {
-			this.nombre = nombre;
-		}
-		public Date getFechaDeCreacion() {
-			return fechaDeCreacion;
-		}
-		public void setFechaDeCreacion(Date fechaDeCreacion) {
-			this.fechaDeCreacion = fechaDeCreacion;
-		}
-		public Collection<Cursada> getCursadasRealizadas() {
-			return cursadasRealizadas;
-		}
-		public void setCursadasRealizadas(Collection<Cursada> cursadasRealizadas) {
-			this.cursadasRealizadas = cursadasRealizadas;
-		}
-		public Collection<Traduccion> getTraducciones() {
-			return traducciones;
-		}
-		public void setTraducciones(Collection<Traduccion> traducciones) {
-			this.traducciones = traducciones;
-		}
 
-		public void agregarCursada(Cursada cursada){
-			cursadasRealizadas.add(cursada);
-		}
-		public void agregarTraduccion(Traduccion traduccion){
-			traducciones.add(traduccion);
-		}
-		
-	// Methods
+	/**
+	 * Método para recuperar el mail del objeto usuario
+	 * @return String
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * Método para setear el mail del objeto usuario
+	 * @param email
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * Método para recuperar el nombre del objeto usuario
+	 * @return String
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * Método para setear el nombre del objeto usuario
+	 * @param nombre
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	/**
+	 * Método para recuperar la fecha de creacion del objeto usuario
+	 * @return Date
+	 */
+	public Date getFechaDeCreacion() {
+		return fechaDeCreacion;
+	}
+
+	/**
+	 * Método para setear la fecha de creacion del objeto usuario
+	 * @param fechaDeCreacion
+	 */
+	public void setFechaDeCreacion(Date fechaDeCreacion) {
+		this.fechaDeCreacion = fechaDeCreacion;
+	}
+
+	/**
+	 * Método para recuperar la coleccion de cursadas realizadas del objeto usuario
+	 * @return Collection
+	 */
+	public Collection<Cursada> getCursadasRealizadas() {
+		return cursadasRealizadas;
+	}
+
+	/**
+	 * Método para setear la coleccion de cursadas realizadas del objeto usuario
+	 * @param cursadasRealizadas
+	 */
+	public void setCursadasRealizadas(Collection<Cursada> cursadasRealizadas) {
+		this.cursadasRealizadas = cursadasRealizadas;
+	}
+
+	/**
+	 * Método para recuperar las traducciones del objeto usuario
+	 * @return Collection
+	 */
+	public Collection<Traduccion> getTraducciones() {
+		return traducciones;
+	}
+
+	/**
+	 * Método para setear la coleccion de traducciones del objeto usuario
+	 * @param traducciones
+	 */
+	public void setTraducciones(Collection<Traduccion> traducciones) {
+		this.traducciones = traducciones;
+	}
+
+
+	/**
+	 * Método para agregar una cursada en la coleccion de cursadas del objeto usuario
+	 * @param cursada
+	 */
+	public void agregarCursada(Cursada cursada){
+		cursadasRealizadas.add(cursada);
+	}
+
+	/**
+	 * Método para agregar una traduccion en la coleccion de traducciones del objeto usuario
+	 * @param traduccion
+	 */
+	public void agregarTraduccion(Traduccion traduccion){
+		traducciones.add(traduccion);
+	}
+
+
 	/**
 	 * Retorna el nivel máximo entre las cursadas aprobadas
 	 * @param idioma

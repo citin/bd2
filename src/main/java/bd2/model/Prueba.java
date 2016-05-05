@@ -13,10 +13,25 @@ package bd2.model;
  */
 public class Prueba {
 	
-	// Attributes
+	/**
+	 * Variable de instancia puntaje. 
+	 * Puntaje de la prueba
+	 */
 	private Integer puntaje;
+
+	/**
+	 * Variable de instancia leccion
+	 * Leccion de la prueba
+	 */
 	private Leccion leccion;
-	
+
+	/**
+	 * Constructor por defecto para la clase Prueba.
+	 */
+	public Prueba(){
+		
+	}
+
 	/**
 	 * Constructor de la clase Prueba
 	 * @param leccion

@@ -19,9 +19,24 @@ import java.util.Date;
  */
 public class Moderador extends Usuario {
 
-	// Attributes
+	/**
+	 * Variable de instancia evaluaciones. 
+	 * Coleccion de evaluaciones del moderador
+	 */
 	private Collection<Evaluacion> evaluaciones;
+
+	/**
+	 * Variable de instancia idiomas. 
+	 * Coleccion de idiomas del moderador
+	 */
 	private Collection<Idioma> idiomas;
+
+	/**
+	 * Constructor por defecto para la clase Moderador.
+	 */
+	public Moderador(){
+		
+	}
 	
 	/**
 	 * Constructor para la clase Moderador
@@ -37,22 +52,38 @@ public class Moderador extends Usuario {
 		this.setIdiomas(new ArrayList<Idioma>());
 	}
 
-	// Accesors
+	/**
+	 * Método para recuperar la coleccion de evaluaciones del objeto moderador
+	 * @return Collection
+	 */
 	public Collection<Evaluacion> getEvaluaciones() {
 		return evaluaciones;
 	}
+
+	/**
+	 * Método para la setear la coleccion de evaluaciones del objeto moderador
+	 * @param evaluaciones
+	 */
 	public void setEvaluaciones(Collection<Evaluacion> evaluaciones) {
 		this.evaluaciones = evaluaciones;
 	}
+
+	/**
+	 * Método para recuperar la coleccion de idiomas del objeto moderador
+	 * @return Collection
+	 */
 	public Collection<Idioma> getIdiomas() {
 		return idiomas;
 	}
+
+	/**
+	 * Método para setear la coleccion de idiomas del objeto moderador
+	 * @param idiomas
+	 */
 	public void setIdiomas(Collection<Idioma> idiomas) {
 		this.idiomas = idiomas;
 	}
 
-	// Methods
-	
 	/**
 	 * Retorna la reputacion del moderador
 	 * @return

@@ -21,19 +21,44 @@ import java.util.Iterator;
 
 public class Cursada {
 
+	/**
+	 * Variable de instancia inicio. 
+	 * Fecha de inicio de la cursada
+	 */
 	private Date inicio;
+
+	/**
+	 * Variable de instancia usuario. 
+	 * Usuario de la cursada
+	 */
 	private Usuario usuario;
+
+	/**
+	 * Variable de instancia pruebas. 
+	 * Coleccion de pruebas de la cursada.
+	 */
 	private Collection<Prueba> pruebas;
+
+	/**
+	 * Variable de instancia curso. 
+	 * Curso de la cursada.
+	 */
 	private Curso curso;
 	
 	/**
-	 * Constructor de la clase Cursada
+	 * Constructor por defecto para la clase Cursada.
+	 */
+	public Cursada(){
+		
+	}
+
+	/**
+	 * Constructor de la clase Cursada con argumentos
 	 * 
 	 * @param curso
 	 * @param inicio
 	 * @param usuario
 	 */
-	// new Cursada(cursoInglesBasico, hoy, sven);
 	public Cursada(Curso curso, Date inicio, Usuario usuario) {
 		super();
 		this.setInicio(inicio);
@@ -43,40 +68,86 @@ public class Cursada {
 		this.setPruebas(new ArrayList<Prueba>());
 	}
 	
-	// Accesors
+	/**
+	 * Método para recupera el inicio del objeto cursada
+	 * @return Date
+	 */	
 	public Date getInicio() {
 		return inicio;
 	}
+
+	/**
+	 * Método para setear una fecha de inicio al objeto cursada
+	 * @param inicio
+	 */
 	public void setInicio(Date inicio) {
 		this.inicio = inicio;
 	}
+
+	/**
+	 * Método para recupera el usuario del objeto cursada
+	 * @return Usuario
+	 */
 	public Usuario getUsuario() {
 		return usuario;
 	}
+
+	/**
+	 * Método para setear unusuario al objeto cursada
+	 * @param usuario
+	 */
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+	/**
+	 * Método para recupera la coleccion de pruebas del objeto cursada
+	 * @return Collection
+	 */
 	public Collection<Prueba> getPruebas() {
 		return pruebas;
 	}
+
+	/**
+	 * Método para setear una coloccion de pruebas al objeto cursada
+	 * @param pruebas
+	 */
 	public void setPruebas(Collection<Prueba> pruebas) {
 		this.pruebas = pruebas;
 	}
+
+	/**
+	 * Método para recupera el curso del objeto cursada
+	 * @return Curso
+	 */
 	public Curso getCurso() {
 		return curso;
 	}
+
+	/**
+	 * Método para setear un curso al objeto cursada
+	 * @param curso
+	 */
 	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
+
+	/**
+	 * Método para recupera el idioma del objeto cursada
+	 * @return Idioma
+	 */
 	public Idioma getIdioma() {
 		return curso.getIdioma();
 	}
+
+	/**
+	 * Método para recupera el nivel del objeto cursada
+	 * @return int
+	 */
 	public int getNivel(){
 		return curso.getNivel();
 	}
-
 	
-	// Methods
 	/**
 	 * Agrega una prueba a la cursada.
 	 * @param prueba
