@@ -18,6 +18,12 @@ import java.util.Date;
  */
 public abstract class Tarea {
 	
+	/*
+	 * Variable de instancia idTarea
+	 * Identificador de tarea
+	 */		
+	private long idTarea;
+	
 	/**
 	 * Variable de instancia fecha
 	 */
@@ -87,4 +93,13 @@ public abstract class Tarea {
 	public void setCompleta(Boolean completa) {
 		this.completa = completa;
 	}
+
+	public long getIdTarea() {
+		return idTarea;
+	}
+
+	public void setIdTarea(long idTarea) {
+		this.idTarea = idTarea;
+	}
+	
 }

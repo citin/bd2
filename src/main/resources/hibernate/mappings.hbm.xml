@@ -145,6 +145,24 @@
         <property name="texto" type="text" />
     </class>
     
+    <class name="Tarea" table="tareas">
+        <id name="idTarea" column="ID_TAREA">
+            <generator class="native" />
+        </id>
+        <discriminator column="subclase_tarea" type="string" />
+        <property name="fecha" />
+        <property name="descripcion" />
+        <property name="completa" />
+    </class>
+    
+   <subclass name="Traduccion" extends="Tarea" discriminator-value="T">
+        <property name="texto" type="text" />
+        <many-to-one name="parrafo" column="ID_PARRAFO" cascade="all" />
+        <many-to-one name="idioma" column="ID_IDIOMA" cascade="all" />
+    </subclass>
 
+    <subclass name="Evaluacion" extends="Tarea" discriminator-value="E">
+        <many-to-one name="traduccion" column="ID_TRADUCCION" cascade="all" />
+    </subclass>
 
 </hibernate-mapping>
