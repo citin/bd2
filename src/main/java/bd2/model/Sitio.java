@@ -44,6 +44,8 @@ public class Sitio {
 	 */
 	public Sitio(){
 		this.setUsuarios(new ArrayList<Usuario>());
+		this.setDocumentos(new ArrayList<Documento>());
+		this.setCursos(new ArrayList<Curso>());
 	}
 	
 	/**
