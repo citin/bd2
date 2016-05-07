@@ -21,7 +21,7 @@ public class Sitio {
 	 * Variable de instancia idSitio
 	 * Identificador del sitio
 	 */		
-	private int idSitio;
+	private long idSitio;
 
 	/*
 	 * Variable de instancia documentos
@@ -116,11 +116,11 @@ public class Sitio {
 		this.cursos = cursos;
 	}
 	
-	public int getIdSitio() {
+	public long getIdSitio() {
 		return idSitio;
 	}
 
-	public void setIdSitio(int idSitio) {
+	public void setIdSitio(long idSitio) {
 		this.idSitio = idSitio;
 	}
 

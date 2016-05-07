@@ -25,6 +25,12 @@ public class Cursada {
 	 * Variable de instancia inicio. 
 	 * Fecha de inicio de la cursada
 	 */
+	private long idCursada;
+	
+	/**
+	 * Variable de instancia inicio. 
+	 * Fecha de inicio de la cursada
+	 */
 	private Date inicio;
 
 	/**
@@ -68,6 +74,15 @@ public class Cursada {
 		this.setPruebas(new ArrayList<Prueba>());
 	}
 	
+
+	public long getIdCursada() {
+		return idCursada;
+	}
+
+	public void setIdCursada(long idCursada) {
+		this.idCursada = idCursada;
+	}
+
 	/**
 	 * Método para recupera el inicio del objeto cursada
 	 * @return Date
