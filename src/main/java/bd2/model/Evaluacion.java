@@ -18,6 +18,11 @@ import java.util.Date;
 public class Evaluacion extends Tarea {
 	
 	/**
+	 * Variable de instancia idEvaluacion
+	 */
+	private Long idEvaluacion;
+	
+	/**
 	 * Variable de instancia puntaje
 	 */
 	private Integer puntaje;

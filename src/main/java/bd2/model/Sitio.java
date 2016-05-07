@@ -40,15 +40,7 @@ public class Sitio {
 		
 	}
 	
-	/**
-	 * Constructor de la clase Sitio con relaciones
-	 */
-	public Sitio() {
-		super();
-		this.setDocumentos(new ArrayList<Documento>());
-		this.setUsuarios(new ArrayList<Usuario>());
-		this.setCursos( new ArrayList<Curso>());
-	}
+
 
 	/**
 	 * Método para agregar un objeto usuario a la coleccion de usuario del sitio

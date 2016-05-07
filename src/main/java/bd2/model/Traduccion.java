@@ -18,6 +18,10 @@ import java.util.Date;
  */
 public class Traduccion extends Tarea {
 	
+	/**
+	 * Variable de instancia idTraduccion
+	 */
+	private Long idTraduccion;
 	
 	/**
 	 * Variable de instancia fecha

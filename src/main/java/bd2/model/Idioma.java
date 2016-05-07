@@ -17,6 +17,11 @@ package bd2.model;
 public class Idioma {
 	
 	/**
+	 * Variable de instancia idIdioma
+	 */
+	private Long idIdioma;
+	
+	/**
 	 * Variable de instancia nombre
 	 */
 	private String nombre;

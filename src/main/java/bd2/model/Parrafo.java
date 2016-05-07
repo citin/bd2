@@ -15,6 +15,12 @@ package bd2.model;
 public class Parrafo {
 	
 	/**
+	 * Variable de instancia idParrafo
+	 */
+	
+	private Long idParrafo;
+	
+	/**
 	 * Variable de instancia texto
 	 */
 	private String texto;
