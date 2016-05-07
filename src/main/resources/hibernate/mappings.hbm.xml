@@ -49,6 +49,12 @@
 		</id>		
 		<property name="edicion" column="EDICION" type="string"/>
 		<one-to-one name="idioma" class="Idioma"/>
+		<map name="definiciones" table="diccionario_definiciones">
+            <key column="id"/>
+            <index column="palabra" type="string" />
+            <element column="significado" type="string" />
+        </map>
 	</class>
+
 	
 </hibernate-mapping>
