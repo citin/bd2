@@ -18,10 +18,19 @@ import java.util.Collection;
 public class Curso {
 	
 	// Attributes
+	private int idCurso;
 	private String nombre;
 	private Integer nivel;
 	private Collection<Leccion> lecciones;
 	private Idioma idioma;
+
+
+	/**
+	 * Constructor por defecto para la clase Curso.
+	 */
+	public Curso(){
+		
+	}
 	
 	/**
 	 * Constructor de la clase Curso
@@ -63,6 +72,13 @@ public class Curso {
 	}
 	public void setIdioma(Idioma idioma) {
 		this.idioma = idioma;
+	}
+	public int getIdCurso() {
+		return idCurso;
+	}
+
+	public void setIdCurso(int idCurso) {
+		this.idCurso = idCurso;
 	}
 	
 	// Methods

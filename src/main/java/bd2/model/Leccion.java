@@ -10,7 +10,15 @@ package bd2.model;
 
 public class Leccion {
 	// Attributes
+	private int idLeccion;
 	private String nombre;
+
+	/**
+	 * Constructor por defecto para la clase Leccion.
+	 */
+	public Leccion(){
+		
+	}
 	
 	/**
 	 * Constructor de la clase Leccion
@@ -30,4 +38,13 @@ public class Leccion {
 	public String getNombre() {
 		return nombre;
 	}	
+	
+	public int getIdLeccion() {
+		return idLeccion;
+	}
+
+	public void setIdLeccion(int idLeccion) {
+		this.idLeccion = idLeccion;
+	}
+
 }

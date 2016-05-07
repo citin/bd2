@@ -18,6 +18,12 @@ import java.util.Collection;
 public class Sitio {
 
 	/*
+	 * Variable de instancia idSitio
+	 * Identificador del sitio
+	 */		
+	private int idSitio;
+
+	/*
 	 * Variable de instancia documentos
 	 * Coleccion de documentos del sitio
 	 */	
@@ -33,13 +39,6 @@ public class Sitio {
 	 */
 	private Collection<Curso> cursos;
 
-	/**
-	 * Constructor por defecto para la clase Sitio.
-	 */
-	public Sitio(){
-		
-	}
-	
 	/**
 	 * Constructor de la clase Sitio con relaciones
 	 */
@@ -119,5 +118,14 @@ public class Sitio {
 	public void setCursos(Collection<Curso> cursos) {
 		this.cursos = cursos;
 	}
+	
+	public int getIdSitio() {
+		return idSitio;
+	}
+
+	public void setIdSitio(int idSitio) {
+		this.idSitio = idSitio;
+	}
+
 
 }
