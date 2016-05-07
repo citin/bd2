@@ -43,7 +43,7 @@ public class Sitio {
 	 * Constructor por defecto para la clase Sitio.
 	 */
 	public Sitio(){
-		
+		this.setUsuarios(new ArrayList<Usuario>());
 	}
 	
 	/**
