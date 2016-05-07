@@ -21,6 +21,11 @@ import java.util.Map;
 public class Diccionario {
 	
 	/**
+	 * Variable de instancia idDiccionario
+	 */
+	private Long idDiccionario;
+	
+	/**
 	 * Variable de instancia edicion
 	 */
 	private String edicion;

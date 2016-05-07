@@ -39,16 +39,13 @@ public class Sitio {
 	 */
 	private Collection<Curso> cursos;
 
-	/**
-	 * Constructor de la clase Sitio con relaciones
+	/*
+	 * Constructor por defecto para la clase Sitio.
 	 */
-	public Sitio() {
-		super();
-		this.setDocumentos(new ArrayList<Documento>());
-		this.setUsuarios(new ArrayList<Usuario>());
-		this.setCursos( new ArrayList<Curso>());
+	public Sitio(){
+		
 	}
-
+	
 	/**
 	 * Método para agregar un objeto usuario a la coleccion de usuario del sitio
 	 * @param user

@@ -18,6 +18,12 @@ import java.util.Collection;
 public class Documento {
 	
 	/**
+	 * Variable de instancia idDocumento. 
+	 */
+	
+	private Long idDocumento;
+	
+	/**
 	 * Variable de instancia nombre. 
 	 * Nombre del documento
 	 */
