@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="bd2.model">
+
+	<class name="Sitio" table="sitios">
+		<id name="idSitio" type="int" column="ID_SITIO">
+			<generator class="native"/>
+		</id>		
+		<list name="cursos" cascade="all">
+  			<key column="ID_SITIO"/>
+  			<list-index column="ORDEN"/>
+			<one-to-many class="Curso"/>
+		</list>
+	</class>
+
+	<class name="Curso" table="cursos">
+		<id name="idCurso" type="int" column="ID_CURSO">
+			<generator class="native"/>
+		</id>		
+		<property name="nombre" column="NOMBRE" type="string"/>
+        <property name="nivel" column="NIVEL" type="int"/>
+        <list name="lecciones" cascade="all">
+  			<key column="ID_CURSO"/>
+  			<list-index column="ORDEN"/>
+			<one-to-many class="Leccion"/>
+		</list>
+	</class>
+	
+	<class name="Leccion" table="lecciones">
+		<id name="idLeccion" type="int" column="ID_LECCION">
+			<generator class="native"/>
+		</id>		
+		<property name="nombre" column="NOMBRE" type="string"/>
+	</class>
+	
+</hibernate-mapping>
