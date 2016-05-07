@@ -40,6 +40,15 @@
 			<generator class="native"/>
 		</id>		
 		<property name="nombre" column="NOMBRE" type="string"/>
+		<one-to-one name="diccionario" class="Diccionario"/>
+	</class>
+	
+	<class name="Diccionario" table="diccionarios">
+		<id name="idDiccionario" type="int" column="ID_DICCIONARIO">
+			<generator class="native"/>
+		</id>		
+		<property name="edicion" column="EDICION" type="string"/>
+		<one-to-one name="idioma" class="Idioma"/>
 	</class>
 	
 </hibernate-mapping>
