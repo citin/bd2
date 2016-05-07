@@ -60,6 +60,27 @@
 		<many-to-one name="diccionario" column="ID_DICCIONARIO" cascade="all" unique="true"/>
 	</class>
 	
-
+	<class name="Usuario" table="usuarios">
 	
+		<id name="idUsuario"  column="ID_USUARIO">
+			<generator class="native"/>
+		</id>
+
+		<property name="email" column="EMAIL" />
+		<property name="nombre" column="NOMBRE" />
+		<property name="fechaDeCreacion" column="FECHA_CREACION" />
+
+		<joined-subclass name="Moderador" table="MODERADOR">
+			<key column="ID_USUARIO"/>
+
+			<list name="idiomas" cascade="all">
+  				<key column="ID_USUARIO"/>
+  				<list-index column="ORDEN"/>
+				<one-to-many class="Idioma"/>
+			</list>
+			
+		</joined-subclass>
+
+	</class>
+
 </hibernate-mapping>
