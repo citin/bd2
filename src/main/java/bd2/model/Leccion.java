@@ -10,7 +10,7 @@ package bd2.model;
 
 public class Leccion {
 	// Attributes
-	private int idLeccion;
+	private long idLeccion;
 	private String nombre;
 
 	/**
@@ -39,11 +39,11 @@ public class Leccion {
 		return nombre;
 	}	
 	
-	public int getIdLeccion() {
+	public long getIdLeccion() {
 		return idLeccion;
 	}
 
-	public void setIdLeccion(int idLeccion) {
+	public void setIdLeccion(long idLeccion) {
 		this.idLeccion = idLeccion;
 	}
 

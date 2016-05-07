@@ -18,7 +18,7 @@ import java.util.Collection;
 public class Curso {
 	
 	// Attributes
-	private int idCurso;
+	private long idCurso;
 	private String nombre;
 	private Integer nivel;
 	private Collection<Leccion> lecciones;
@@ -29,7 +29,7 @@ public class Curso {
 	 * Constructor por defecto para la clase Curso.
 	 */
 	public Curso(){
-		
+		this.setLecciones( new ArrayList<Leccion>());
 	}
 	
 	/**
@@ -73,11 +73,11 @@ public class Curso {
 	public void setIdioma(Idioma idioma) {
 		this.idioma = idioma;
 	}
-	public int getIdCurso() {
+	public long getIdCurso() {
 		return idCurso;
 	}
 
-	public void setIdCurso(int idCurso) {
+	public void setIdCurso(long idCurso) {
 		this.idCurso = idCurso;
 	}
 	
