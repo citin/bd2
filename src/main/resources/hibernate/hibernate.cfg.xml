@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE hibernate-configuration SYSTEM
+<!DOCTYPE hibernate-configuration SYSTEM 
 "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-
 <hibernate-configuration>
 	<session-factory>
 		<property name="hibernate.dialect">
@@ -11,18 +10,14 @@
 			com.mysql.jdbc.Driver
 		</property>
 
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Grupo10</property>
-		<property name="hibernate.connection.username">Grupo10</property>
-		<property name="hibernate.connection.password">Grupo10</property>
-
-		<property name="hibernate.show_sql">false</property>
-		<property name="hibernate.format_sql">
-			true
-		</property>
-
-		<!-- Colocar las referencias a los archivos de mapping en este punto -->
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/grupo10</property>
+		<property name="hibernate.connection.username">grupo10</property>
+		<property name="hibernate.connection.password">grupo10</property>
 		
-		<mapping resource="hibernate/mappings.hbm.xml"/>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
 
+     	<mapping resource="hibernate/mappings.hbm.xml"/>
+		
 	</session-factory>
 </hibernate-configuration>
