@@ -13,6 +13,9 @@ package bd2.model;
  */
 public class Prueba {
 	
+
+	private long idPrueba;
+	
 	/**
 	 * Variable de instancia puntaje. 
 	 * Puntaje de la prueba
@@ -61,6 +64,14 @@ public class Prueba {
 
 	public void setLeccion(Leccion leccion) {
 		this.leccion = leccion;
+	}
+	
+	public long getIdPrueba() {
+		return idPrueba;
+	}
+
+	public void setIdPrueba(long idPrueba) {
+		this.idPrueba = idPrueba;
 	}
 
 	// Methods

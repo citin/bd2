@@ -55,7 +55,7 @@ public class Cursada {
 	 * Constructor por defecto para la clase Cursada.
 	 */
 	public Cursada(){
-		
+		this.setPruebas(new ArrayList<Prueba>());		
 	}
 
 	/**
