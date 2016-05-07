@@ -68,6 +68,18 @@ public class Documento {
 		this.parrafos = new ArrayList<Parrafo>();
 	}
 	
+	public Long getIdDocumento() {
+		return idDocumento;
+	}
+
+	public void setIdDocumento(Long idDocumento) {
+		this.idDocumento = idDocumento;
+	}
+
+	public void setParrafos(Collection<Parrafo> parrafos) {
+		this.parrafos = parrafos;
+	}
+
 	/**
 	 * Método para recupera el nombre del objeto documento
 	 * @return String

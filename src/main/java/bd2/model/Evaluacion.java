@@ -88,5 +88,13 @@ public class Evaluacion extends Tarea {
 	public void setTraduccion(Traduccion traduccion) {
 		this.traduccion = traduccion;
 	}
+
+	public Long getIdEvaluacion() {
+		return idEvaluacion;
+	}
+
+	public void setIdEvaluacion(Long idEvaluacion) {
+		this.idEvaluacion = idEvaluacion;
+	}
 	
 }

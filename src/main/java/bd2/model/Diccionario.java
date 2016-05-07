@@ -60,6 +60,15 @@ public class Diccionario {
 		this.setDefiniciones(new Hashtable<String, String>());
 	} 
 	
+	
+	public Long getIdDiccionario() {
+		return idDiccionario;
+	}
+
+	public void setIdDiccionario(Long idDiccionario) {
+		this.idDiccionario = idDiccionario;
+	}
+
 	/**
 	 * Método para recuperar la edición del objeto diccionario
 	 * @return String
@@ -125,4 +134,6 @@ public class Diccionario {
 	public void agregarDefinicion(String def1, String def2){
 		definiciones.put(def1, def2);
 	}
+	
+	
 }

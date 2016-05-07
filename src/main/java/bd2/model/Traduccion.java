@@ -79,6 +79,15 @@ public class Traduccion extends Tarea {
 		this.setIdioma(idioma);
 	} 
 	
+		
+	public Long getIdTraduccion() {
+		return idTraduccion;
+	}
+
+	public void setIdTraduccion(Long idTraduccion) {
+		this.idTraduccion = idTraduccion;
+	}
+
 	/**
 	 * Método para recuperar la fecha del objeto traduccion
 	 */
