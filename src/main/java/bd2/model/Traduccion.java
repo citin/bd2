@@ -21,7 +21,7 @@ public class Traduccion extends Tarea {
 	/**
 	 * Variable de instancia idTraduccion
 	 */
-	private Long idTraduccion;
+	private long idTraduccion;
 	
 	/**
 	 * Variable de instancia fecha
@@ -80,11 +80,11 @@ public class Traduccion extends Tarea {
 	} 
 	
 		
-	public Long getIdTraduccion() {
+	public long getIdTraduccion() {
 		return idTraduccion;
 	}
 
-	public void setIdTraduccion(Long idTraduccion) {
+	public void setIdTraduccion(long idTraduccion) {
 		this.idTraduccion = idTraduccion;
 	}
 

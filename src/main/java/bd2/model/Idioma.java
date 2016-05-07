@@ -19,7 +19,7 @@ public class Idioma {
 	/**
 	 * Variable de instancia idIdioma
 	 */
-	private Long idIdioma;
+	private long idIdioma;
 	
 	/**
 	 * Variable de instancia nombre
@@ -35,14 +35,14 @@ public class Idioma {
 	 * Este es el constructor por defecto para la clase Idioma.
 	 */
 	public Idioma(){
-		
+		this.diccionario = new Diccionario();
 	}
 	
-	public Long getIdIdioma() {
+	public long getIdIdioma() {
 		return idIdioma;
 	}
 
-	public void setIdIdioma(Long idIdioma) {
+	public void setIdIdioma(long idIdioma) {
 		this.idIdioma = idIdioma;
 	}
 	

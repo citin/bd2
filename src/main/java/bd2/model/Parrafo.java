@@ -18,7 +18,7 @@ public class Parrafo {
 	 * Variable de instancia idParrafo
 	 */
 	
-	private Long idParrafo;
+	private long idParrafo;
 	
 	/**
 	 * Variable de instancia texto
@@ -48,11 +48,11 @@ public class Parrafo {
 		this.setDocumento(nuevoDocuemnto);
 	} 
 	
-	public Long getIdParrafo() {
+	public long getIdParrafo() {
 		return idParrafo;
 	}
 
-	public void setIdParrafo(Long idParrafo) {
+	public void setIdParrafo(long idParrafo) {
 		this.idParrafo = idParrafo;
 	}
 

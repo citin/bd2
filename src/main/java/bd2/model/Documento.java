@@ -21,7 +21,7 @@ public class Documento {
 	 * Variable de instancia idDocumento. 
 	 */
 	
-	private Long idDocumento;
+	private long idDocumento;
 	
 	/**
 	 * Variable de instancia nombre. 
@@ -68,11 +68,11 @@ public class Documento {
 		this.parrafos = new ArrayList<Parrafo>();
 	}
 	
-	public Long getIdDocumento() {
+	public long getIdDocumento() {
 		return idDocumento;
 	}
 
-	public void setIdDocumento(Long idDocumento) {
+	public void setIdDocumento(long idDocumento) {
 		this.idDocumento = idDocumento;
 	}
 

@@ -20,7 +20,7 @@ public class Evaluacion extends Tarea {
 	/**
 	 * Variable de instancia idEvaluacion
 	 */
-	private Long idEvaluacion;
+	private long idEvaluacion;
 	
 	/**
 	 * Variable de instancia puntaje
@@ -89,11 +89,11 @@ public class Evaluacion extends Tarea {
 		this.traduccion = traduccion;
 	}
 
-	public Long getIdEvaluacion() {
+	public long getIdEvaluacion() {
 		return idEvaluacion;
 	}
 
-	public void setIdEvaluacion(Long idEvaluacion) {
+	public void setIdEvaluacion(long idEvaluacion) {
 		this.idEvaluacion = idEvaluacion;
 	}
 	

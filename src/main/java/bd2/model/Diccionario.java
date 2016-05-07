@@ -23,7 +23,7 @@ public class Diccionario {
 	/**
 	 * Variable de instancia idDiccionario
 	 */
-	private Long idDiccionario;
+	private long idDiccionario;
 	
 	/**
 	 * Variable de instancia edicion
@@ -61,11 +61,11 @@ public class Diccionario {
 	} 
 	
 	
-	public Long getIdDiccionario() {
+	public long getIdDiccionario() {
 		return idDiccionario;
 	}
 
-	public void setIdDiccionario(Long idDiccionario) {
+	public void setIdDiccionario(long idDiccionario) {
 		this.idDiccionario = idDiccionario;
 	}
 
