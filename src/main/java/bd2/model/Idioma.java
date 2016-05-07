@@ -15,7 +15,7 @@ package bd2.model;
  *
  */
 public class Idioma {
-	
+
 	/**
 	 * Variable de instancia idIdioma
 	 */
@@ -36,6 +36,14 @@ public class Idioma {
 	 */
 	public Idioma(){
 		
+	}
+	
+	public Long getIdIdioma() {
+		return idIdioma;
+	}
+
+	public void setIdIdioma(Long idIdioma) {
+		this.idIdioma = idIdioma;
 	}
 	
 	/**
