@@ -25,10 +25,18 @@
   			<list-index column="ORDEN"/>
 			<one-to-many class="Leccion"/>
 		</list>
+		<one-to-one name="idioma" class="Idioma"/>
 	</class>
 	
 	<class name="Leccion" table="lecciones">
 		<id name="idLeccion" type="int" column="ID_LECCION">
+			<generator class="native"/>
+		</id>		
+		<property name="nombre" column="NOMBRE" type="string"/>
+	</class>
+	
+	<class name="Idioma" table="idiomas">
+		<id name="idIdioma" type="int" column="ID_IDIOMA">
 			<generator class="native"/>
 		</id>		
 		<property name="nombre" column="NOMBRE" type="string"/>
