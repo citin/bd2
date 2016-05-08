@@ -68,16 +68,21 @@ public class Documento {
 		this.parrafos = new ArrayList<Parrafo>();
 	}
 	
+	
+	/**
+	 * Método para recupera el id del objeto documento
+	 * @return long
+	 */
 	public long getIdDocumento() {
 		return idDocumento;
 	}
 
+	/**
+	 * Método para setear el id del objeto documento
+	 * @param idDocumento
+	 */
 	public void setIdDocumento(long idDocumento) {
 		this.idDocumento = idDocumento;
-	}
-
-	public void setParrafos(Collection<Parrafo> parrafos) {
-		this.parrafos = parrafos;
 	}
 
 	/**
@@ -145,5 +150,13 @@ public class Documento {
 	 */
 	public Collection<Parrafo> getParrafos(){
 		return this.parrafos;
+	}
+	
+	/**
+	 * Método para setear un colleccion objetos parrafos en la variable de instancia parrafos del objeto documento
+	 * @param nombre
+	 */
+	public void setParrafos(Collection<Parrafo> parrafos) {
+		this.parrafos = parrafos;
 	}
 }

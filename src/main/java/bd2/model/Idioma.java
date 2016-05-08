@@ -38,14 +38,6 @@ public class Idioma {
 		this.diccionario = new Diccionario();
 	}
 	
-	public long getIdIdioma() {
-		return idIdioma;
-	}
-
-	public void setIdIdioma(long idIdioma) {
-		this.idIdioma = idIdioma;
-	}
-	
 	/**
 	 * Constructor con argumentos para la clase Idioma
 	 * 
@@ -57,6 +49,21 @@ public class Idioma {
 		this.setDiccionario(new Diccionario(this, "Edicion 1")); // Por defecto se inicializa en la Edicion 1
 	}
 	
+	/**
+	 * Método para recupera el id del objeto idioma
+	 * @return long
+	 */
+	public long getIdIdioma() {
+		return idIdioma;
+	}
+
+	/**
+	 * Método para setear el id del objeto diccionario
+	 * @param idIdioma
+	 */
+	public void setIdIdioma(long idIdioma) {
+		this.idIdioma = idIdioma;
+	}
 	/**
 	 * Método para recuperar el nombre del objeto idioma	
 	 * @return String

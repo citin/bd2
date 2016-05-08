@@ -48,10 +48,18 @@ public class Parrafo {
 		this.setDocumento(nuevoDocuemnto);
 	} 
 	
+	/**
+	 * Método para recupera el id del objeto parrafo
+	 * @return long
+	 */
 	public long getIdParrafo() {
 		return idParrafo;
 	}
 
+	/**
+	 * Método para setear el id del objeto parrafo
+	 * @param idParrafo
+	 */
 	public void setIdParrafo(long idParrafo) {
 		this.idParrafo = idParrafo;
 	}

@@ -60,11 +60,18 @@ public class Diccionario {
 		this.setDefiniciones(new Hashtable<String, String>());
 	} 
 	
-	
+	/**
+	 * Método para recupera el id del objeto diccionario
+	 * @return long
+	 */
 	public long getIdDiccionario() {
 		return idDiccionario;
 	}
 
+	/**
+	 * Método para setear el id del objeto diccionario
+	 * @param idDiccionario
+	 */
 	public void setIdDiccionario(long idDiccionario) {
 		this.idDiccionario = idDiccionario;
 	}

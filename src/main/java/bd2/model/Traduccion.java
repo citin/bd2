@@ -80,10 +80,18 @@ public class Traduccion extends Tarea {
 	} 
 	
 		
+	/**
+	 * Método para recupera el id del objeto traduccion
+	 * @return long
+	 */
 	public long getIdTraduccion() {
 		return idTraduccion;
 	}
-
+	
+	/**
+	 * Método para setear el id del objeto traduccion
+	 * @param idTraduccion
+	 */
 	public void setIdTraduccion(long idTraduccion) {
 		this.idTraduccion = idTraduccion;
 	}

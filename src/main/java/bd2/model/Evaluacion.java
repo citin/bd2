@@ -89,10 +89,18 @@ public class Evaluacion extends Tarea {
 		this.traduccion = traduccion;
 	}
 
+	/**
+	 * Método para recupera el id del objeto evaluacion
+	 * @return long
+	 */
 	public long getIdEvaluacion() {
 		return idEvaluacion;
 	}
 
+	/**
+	 * Método para setear el id del objeto evaluacion
+	 * @param idEvaluacion
+	 */
 	public void setIdEvaluacion(long idEvaluacion) {
 		this.idEvaluacion = idEvaluacion;
 	}
