@@ -32,15 +32,14 @@ public class HibernateTest extends TestCase {
 		System.out.println("DONE.");
 
 		System.out.println("Building sessions.........");    
-	    ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings( configuration.getProperties()).buildServiceRegistry();
+	    ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(
+	            configuration.getProperties()).buildServiceRegistry();
 	    factory = configuration.buildSessionFactory(serviceRegistry);
-	    System.out.println("DONE.");
 	}
 	
 	public void testGuardarYLeer() {
 		this.crearSessionFactory("hibernate/hibernate.cfg.xml");
-//		this.guardarYLeerBasico();
-		System.out.println("Comienza la magia.");
+		this.guardarYLeerBasico();
 		factory.close();
 	}
 
@@ -155,5 +154,5 @@ public class HibernateTest extends TestCase {
 		assertNotNull(session.get(clazz, id));
 		tx.commit();
 		session.close();
- 	}
- }
+	}
+}
