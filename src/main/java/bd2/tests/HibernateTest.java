@@ -39,8 +39,7 @@ public class HibernateTest extends TestCase {
 	
 	public void testGuardarYLeer() {
 		this.crearSessionFactory("hibernate/hibernate.cfg.xml");
-//		this.guardarYLeerBasico();
-		System.out.println("Comienza la magia.");
+		this.guardarYLeerBasico();
 		factory.close();
 	}
 
