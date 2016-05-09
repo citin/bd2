@@ -118,10 +118,17 @@ public class Sitio {
 		this.cursos = cursos;
 	}
 	
+	/**
+	 * Método para obtener el id del sitio
+	 */
 	public long getIdSitio() {
 		return idSitio;
 	}
 
+	/**
+	 * Método para setear el id del sitio
+	 * @param cursos
+	 */
 	public void setIdSitio(long idSitio) {
 		this.idSitio = idSitio;
 	}

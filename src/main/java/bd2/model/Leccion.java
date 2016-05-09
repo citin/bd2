@@ -9,8 +9,15 @@
 package bd2.model;
 
 public class Leccion {
-	// Attributes
+
+	/**
+	 * Variable de instancia idLeccion
+	 */
 	private long idLeccion;
+
+	/**
+	 * Variable de instancia nombre
+	 */
 	private String nombre;
 
 	/**
@@ -29,20 +36,32 @@ public class Leccion {
 		this.setNombre(nombre);
 	}
 
-
-	// Accesors
+	/**
+	 * Método para setear el nombre de la leccion
+	 * @param nombre
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
+	/**
+	 * Método para obtener el nombre de la leccion
+	 */
 	public String getNombre() {
 		return nombre;
 	}	
 	
+	/**
+	 * Método para obtener el id el nombre de la leccion
+	 */
 	public long getIdLeccion() {
 		return idLeccion;
 	}
 
+	/**
+	 * Método para setear el id de la leccion
+	 * @param idLeccion
+	 */
 	public void setIdLeccion(long idLeccion) {
 		this.idLeccion = idLeccion;
 	}

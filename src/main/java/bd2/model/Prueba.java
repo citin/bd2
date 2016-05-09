@@ -13,7 +13,9 @@ package bd2.model;
  */
 public class Prueba {
 	
-
+	/**
+	 * Variable de instancia idPrueba. 
+	 */
 	private long idPrueba;
 	
 	/**

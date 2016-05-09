@@ -74,11 +74,17 @@ public class Cursada {
 		this.setPruebas(new ArrayList<Prueba>());
 	}
 	
-
+	/**
+	 * Método para setear el id de la cursada
+	 */	
 	public long getIdCursada() {
 		return idCursada;
 	}
 
+	/**
+	 * Método para setear el id de la cursada
+	 * @param idCursada
+	 */	
 	public void setIdCursada(long idCursada) {
 		this.idCursada = idCursada;
 	}

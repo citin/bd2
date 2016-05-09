@@ -19,17 +19,10 @@ import java.util.Iterator;
  */
 public class Usuario {
 
-	public long getIdUsuario() {
-		return idUsuario;
-	}
-
-	public void setIdUsuario(long idUsuario) {
-		this.idUsuario = idUsuario;
-	}
 
 	/**
-	 * Variable de instancia email . 
-	 * email del usuario
+	 * Variable de instancia idUsuario . 
+	 * identificador del usuario
 	 */
 	private long idUsuario;
 	
@@ -85,6 +78,21 @@ public class Usuario {
 		this.setCursadasRealizadas(new ArrayList<Cursada>());
 		this.setTraducciones(new ArrayList<Traduccion>());
 	
+	}
+
+	/**
+	 * Método para setear el id del objeto usuario
+	 */
+	public long getIdUsuario() {
+		return idUsuario;
+	}
+
+	/**
+	 * Método para recuperar el id del objeto usuario
+	 * @param idUsuario
+	 */
+	public void setIdUsuario(long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	/**
