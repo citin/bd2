@@ -34,10 +34,10 @@ public class Queries {
 
 		consultaHQL_a(session);
 		consultaHQL_b(session);
-		consultaHQL_c(session);
+//		consultaHQL_c(session);
 		consultaHQL_d(session);
 //		consultaHQL_e(session);
-//		consultaHQL_f(session);
+		consultaHQL_f(session);
 //		consultaHQL_g(session);
 		consultaHQL_h(session);
 //		consultaHQL_i(session);
@@ -114,15 +114,35 @@ public class Queries {
 
 	public static void consultaHQL_h(Session session) {
 		tx = session.beginTransaction();
-		Query query = session.createQuery("from Documento d where d not in (select doc from Documento doc join doc.parrafos p where p in (select t.parrafo from Traduccion t))");
+		Query query = session.createQuery("FROM Documento d WHERE d not in (SELECT doc FROM Documento doc JOIN doc.parrafos p WHERE p in (SELECT t.parrafo FROM Traduccion t))");
 
 		System.out.println("\n\n h) Obtener los nombres de los documentos que no tengan ningún párrafo traducido (en ningun idioma). \n\n");
 		
 		List<Documento> documentos_sin_traduccion = query.list();
 		for (Documento d : documentos_sin_traduccion) {
-			System.out.println("El documento " + d.getNombre() + " no tiene ninguna traducción\n");
+			System.out.println("El documento "+d.getNombre()+" no tiene ninguna traducción\n");
 		}
 		tx.commit();
 	}	
+	
+	public static void consultaHQL_f(Session session) {
+		tx = session.beginTransaction();
+		Query query = session.createQuery("SELECT distinct u FROM Usuario u WHERE u in ("
+											+ "SELECT c.usuario FROM Cursada c JOIN c.pruebas p "
+											+ "WHERE p.puntaje >= 60 AND c.usuario = u "
+											+ "GROUP BY c.curso "
+											+ "HAVING count(p) = (SELECT cur.lecciones.size FROM Curso cur WHERE cur = c.curso)"
+				                            + ")");
+
+		System.out.println("----------------------------------------------------------------------------------------");
+		System.out.println("\n\n F) Obtener los emails de los usuarios con alguna cursada aprobada. \n\n");
+		
+		List<Usuario> usuarios_con_cursada_aprobada = query.list();
+		for (Usuario u : usuarios_con_cursada_aprobada) {
+			System.out.println("Usuario con cursada aprobada: "+u.getEmail()+"\n");
+		}
+		System.out.println("\n");
+		tx.commit();
+	}
 	
 }
