@@ -36,11 +36,11 @@ public class Queries {
 		consultaHQL_b(session);
 		consultaHQL_c(session);
 		consultaHQL_d(session);
-		consultaHQL_e(session);
-		consultaHQL_f(session);
-		consultaHQL_g(session);
-		consultaHQL_h(session);
-		consultaHQL_i(session);
+//		consultaHQL_e(session);
+//		consultaHQL_f(session);
+//		consultaHQL_g(session);
+//		consultaHQL_h(session);
+//		consultaHQL_i(session);
 		
 		session.close();
 
@@ -50,14 +50,13 @@ public class Queries {
 	public static void consultaHQL_b(Session session) {
 		tx = session.beginTransaction();
 		
-		 Query query = session.createQuery("select distinct m from Moderador m join m.evaluaciones e where e.traduccion.idioma.nombre = 'ingles'");
+     	Query query = session.createQuery("SELECT distinct m FROM Moderador m JOIN m.evaluaciones e WHERE e.traduccion.idioma.nombre = 'ingles'");
 
 		List<Moderador> moderadores = query.list();
 		System.out.println("\n\n b) Listar los emails de los moderadores que hayan evaluado traducciones al inglés. \n\n");
 		for (Moderador m : moderadores) {
 			System.out.println("Email: " + m.getEmail() + "\n");
 		}
-
 		tx.commit();
 	}
 
@@ -97,5 +96,20 @@ public class Queries {
 
 //		tx.commit();
 		}
+	
+	public static void consultaHQL_d(Session session) {
+		tx = session.beginTransaction();
+
+		Query query = session.createQuery("SELECT distinct m FROM Moderador m JOIN m.evaluaciones e WHERE (e.traduccion.fecha BETWEEN :fecha_desde AND :fecha_hasta)");
+		query.setString("fecha_desde","2015-07-01");
+		query.setString("fecha_hasta","2015-12-31");
+
+		System.out.println("\n\n d) Listar moderadores que hayan revisado alguna traducción entre dos fechas pasadas como argumento. \n\n");
+		List<Moderador> moderadores_entre_fechas = query.list();
+		for (Moderador m : moderadores_entre_fechas) {
+			System.out.println("Nombre: "+m.getNombre()+"\n");
+		}
+		tx.commit();
+	}
 
 }
