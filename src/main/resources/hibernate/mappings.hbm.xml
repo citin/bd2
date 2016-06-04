@@ -121,6 +121,11 @@
 				<one-to-many class="Idioma"/>
 			</list>
 			
+			<list name="evaluaciones" cascade="all">
+				<key column="ID_USUARIO"/>
+				<list-index column="ORDEN" />
+				<one-to-many class="Evaluacion" />
+			</list>			
 		</joined-subclass>
 
 	</class>
@@ -156,16 +161,17 @@
         <property name="fecha" />
         <property name="descripcion" />
         <property name="completa" />
-    </class>
+   
     
-   <subclass name="Traduccion" extends="Tarea" discriminator-value="T">
-        <property name="texto" type="text" />
-        <many-to-one name="parrafo" column="ID_PARRAFO" cascade="all" />
-        <many-to-one name="idioma" column="ID_IDIOMA" cascade="all" />
-    </subclass>
-
-    <subclass name="Evaluacion" extends="Tarea" discriminator-value="E">
-        <many-to-one name="traduccion" column="ID_TRADUCCION" cascade="all" />
-    </subclass>
-
+	   <subclass name="Traduccion" extends="Tarea" discriminator-value="T">
+	        <property name="texto" type="text" />
+	        <many-to-one name="parrafo" column="ID_PARRAFO" cascade="all" />
+	        <many-to-one name="idioma" column="ID_IDIOMA" cascade="all" />
+	    </subclass>
+	
+	    <subclass name="Evaluacion" extends="Tarea" discriminator-value="E">
+	    	<property name="puntaje" />
+	        <many-to-one name="traduccion" column="ID_TRADUCCION" cascade="all" />
+	    </subclass>
+ 	</class>
 </hibernate-mapping>

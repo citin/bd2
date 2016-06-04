@@ -23,13 +23,13 @@ public class Moderador extends Usuario {
 	 * Variable de instancia evaluaciones. 
 	 * Coleccion de evaluaciones del moderador
 	 */
-	private Collection<Evaluacion> evaluaciones;
+	private Collection<Evaluacion> evaluaciones = new ArrayList<Evaluacion>();
 
 	/**
 	 * Variable de instancia idiomas. 
 	 * Coleccion de idiomas del moderador
 	 */
-	private Collection<Idioma> idiomas;
+	private Collection<Idioma> idiomas = new ArrayList<Idioma>();
 
 	/**
 	 * Constructor por defecto para la clase Moderador.
