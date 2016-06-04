@@ -52,8 +52,9 @@ public class Queries {
 		
      	Query query = session.createQuery("SELECT distinct m FROM Moderador m JOIN m.evaluaciones e WHERE e.traduccion.idioma.nombre = 'ingles'");
 
-		List<Moderador> moderadores = query.list();
+		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("\n\n b) Listar los emails de los moderadores que hayan evaluado traducciones al inglés. \n\n");
+     	List<Moderador> moderadores = query.list();
 		for (Moderador m : moderadores) {
 			System.out.println("Email: " + m.getEmail() + "\n");
 		}
@@ -68,6 +69,8 @@ public class Queries {
 	Query query = session.createQuery("FROM Documento");
 
 	List<Documento> documentos = query.list();
+	
+	System.out.println("----------------------------------------------------------------------------------------");
 	System.out.println("\n a) Listar los nombres de todos los documentos. \n");
 	
 	for (Documento d : documentos) {
@@ -85,9 +88,10 @@ public class Queries {
 
 		Query query = session.createQuery("FROM Usuario WHERE ");
 
-		List<Usuario> usuarios = query.list();
+		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("\n a) Listar los usuarios que hayan iniciado una cursada de Frances de nivel 3 como minimo \n");
-		
+
+		List<Usuario> usuarios = query.list();		
 		for (Usuario usr : usuarios) {
 			System.out.println("Nombre: " + usr.getNombre() + "\n");
 		}
@@ -104,7 +108,9 @@ public class Queries {
 		query.setString("fecha_desde","2015-07-01");
 		query.setString("fecha_hasta","2015-12-31");
 
+		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("\n\n d) Listar moderadores que hayan revisado alguna traducción entre dos fechas pasadas como argumento. \n\n");
+
 		List<Moderador> moderadores_entre_fechas = query.list();
 		for (Moderador m : moderadores_entre_fechas) {
 			System.out.println("Nombre: "+m.getNombre()+"\n");
@@ -116,6 +122,7 @@ public class Queries {
 		tx = session.beginTransaction();
 		Query query = session.createQuery("FROM Documento d WHERE d not in (SELECT doc FROM Documento doc JOIN doc.parrafos p WHERE p in (SELECT t.parrafo FROM Traduccion t))");
 
+		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("\n\n h) Obtener los nombres de los documentos que no tengan ningún párrafo traducido (en ningun idioma). \n\n");
 		
 		List<Documento> documentos_sin_traduccion = query.list();
