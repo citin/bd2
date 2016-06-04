@@ -39,7 +39,7 @@ public class Queries {
 //		consultaHQL_e(session);
 //		consultaHQL_f(session);
 //		consultaHQL_g(session);
-//		consultaHQL_h(session);
+		consultaHQL_h(session);
 //		consultaHQL_i(session);
 		
 		session.close();
@@ -112,4 +112,17 @@ public class Queries {
 		tx.commit();
 	}
 
+	public static void consultaHQL_h(Session session) {
+		tx = session.beginTransaction();
+		Query query = session.createQuery("from Documento d where d not in (select doc from Documento doc join doc.parrafos p where p in (select t.parrafo from Traduccion t))");
+
+		System.out.println("\n\n h) Obtener los nombres de los documentos que no tengan ningún párrafo traducido (en ningun idioma). \n\n");
+		
+		List<Documento> documentos_sin_traduccion = query.list();
+		for (Documento d : documentos_sin_traduccion) {
+			System.out.println("El documento " + d.getNombre() + " no tiene ninguna traducción\n");
+		}
+		tx.commit();
+	}	
+	
 }
