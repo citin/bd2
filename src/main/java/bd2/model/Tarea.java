@@ -98,6 +98,10 @@ public abstract class Tarea {
 		return idTarea;
 	}
 
+	public long getIdtarea() {
+		return idTarea;
+	}
+
 	public void setIdTarea(long idTarea) {
 		this.idTarea = idTarea;
 	}

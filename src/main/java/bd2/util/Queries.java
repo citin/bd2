@@ -1,15 +1,20 @@
 package bd2.util;
 
-import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import bd2.model.Moderador;
+import java.util.Date;
+import java.util.List;
 
+
+import bd2.model.Diccionario;
+import bd2.model.Documento;
+import bd2.model.Moderador;
+import bd2.model.Tarea;
+import bd2.model.Usuario;
 
 public class Queries {
 
@@ -27,22 +32,25 @@ public class Queries {
 		sessions = cfg.buildSessionFactory();
 		Session session = sessions.openSession();
 
+		consultaHQL_a(session);
 		consultaHQL_b(session);
-		
-		/*
-		 * 
-		 * 
-		 */
+		consultaHQL_c(session);
+		consultaHQL_d(session);
+		consultaHQL_e(session);
+		consultaHQL_f(session);
+		consultaHQL_g(session);
+		consultaHQL_h(session);
+		consultaHQL_i(session);
 		
 		session.close();
 
 	}
+
 	
 	public static void consultaHQL_b(Session session) {
 		tx = session.beginTransaction();
 		
 		 Query query = session.createQuery("select distinct m from Moderador m join m.evaluaciones e where e.traduccion.idioma.nombre = 'ingles'");
-		//Query query = session.createQuery("select distinct m from Moderador m");
 
 		List<Moderador> moderadores = query.list();
 		System.out.println("\n\n b) Listar los emails de los moderadores que hayan evaluado traducciones al inglés. \n\n");
@@ -52,4 +60,42 @@ public class Queries {
 
 		tx.commit();
 	}
+
+
+	public static void consultaHQL_a(Session session) {
+
+//	tx = session.beginTransaction();
+
+	Query query = session.createQuery("FROM Documento");
+
+	List<Documento> documentos = query.list();
+	System.out.println("\n a) Listar los nombres de todos los documentos. \n");
+	
+	for (Documento d : documentos) {
+		System.out.println("Documento: " + d.getNombre() + "\n");
+	}
+	System.out.println("\n");
+
+
+//	tx.commit();
+	}
+	
+	public static void consultaHQL_c(Session session) {
+
+//		tx = session.beginTransaction();
+
+		Query query = session.createQuery("FROM Usuario WHERE ");
+
+		List<Usuario> usuarios = query.list();
+		System.out.println("\n a) Listar los usuarios que hayan iniciado una cursada de Frances de nivel 3 como minimo \n");
+		
+		for (Usuario usr : usuarios) {
+			System.out.println("Nombre: " + usr.getNombre() + "\n");
+		}
+		System.out.println("\n");
+
+
+//		tx.commit();
+		}
+
 }
