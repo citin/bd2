@@ -32,15 +32,15 @@ public class Queries {
 		sessions = cfg.buildSessionFactory();
 		Session session = sessions.openSession();
 
-		consultaHQL_a(session);
-		consultaHQL_b(session);
-//		consultaHQL_c(session);
-		consultaHQL_d(session);
-//		consultaHQL_e(session);
-		consultaHQL_f(session);
-//		consultaHQL_g(session);
-		consultaHQL_h(session);
-//		consultaHQL_i(session);
+//		consultaHQL_a(session);
+//		consultaHQL_b(session);
+////		consultaHQL_c(session);
+//		consultaHQL_d(session);
+////		consultaHQL_e(session);
+//		consultaHQL_f(session);
+////		consultaHQL_g(session);
+//		consultaHQL_h(session);
+		consultaHQL_i(session);
 		
 		session.close();
 
@@ -149,6 +149,24 @@ public class Queries {
 			System.out.println("Usuario con cursada aprobada: "+u.getEmail()+"\n");
 		}
 		System.out.println("\n");
+		tx.commit();
+	}
+	
+	public static void consultaHQL_i(Session session) {
+		tx = session.beginTransaction();
+
+		String nombreIdioma = "Aleman";
+		Query query = session.createQuery("SELECT distinct d FROM Documento d JOIN d.parrafos p WHERE p not in ("
+												+ "SELECT t.parrafo FROM Traduccion t WHERE t.idioma.nombre = :nombre_idioma)");
+		query.setString("nombre_idioma", nombreIdioma);
+
+		System.out.println("----------------------------------------------------------------------------------------");
+		System.out.println("\n\n i) Obtener los nombres de los documentos que tengan párrafos sin traducir al idioma de nombre enviado como parámetro. \n\n");		
+	
+		List<Documento> documentos_item_i = query.list();
+		for (Documento d : documentos_item_i) {
+			System.out.println("El documento "+d.getNombre()+" no está totalmente traducido. \n");
+		}
 		tx.commit();
 	}
 	
