@@ -8,6 +8,7 @@
  */
 package bd2.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -16,9 +17,9 @@ import java.util.Date;
  * @author Grupo10
  *
  */
-public abstract class Tarea {
+public class Tarea {
 	
-	/*
+	/**
 	 * Variable de instancia idTarea
 	 * Identificador de tarea
 	 */		
@@ -38,6 +39,26 @@ public abstract class Tarea {
 	 * Variable de instancia completa
 	 */
 	protected Boolean completa;
+	
+	/**
+	 * Constructor por defecto para la clase Traduccion.
+	 */	
+	public Tarea(){
+		
+	}
+	
+	/**
+	 * Constructor con argumentos para la clase Tarea
+	 * 
+	 * @param fecha
+	 * @param descripcion
+	 * @param completa
+	 */
+	public Tarea(Date fecha, String descripcion, Boolean completa){
+		this.setFecha(fecha);
+		this.setDescripcion(descripcion);
+		this.setCompleta(completa);
+	} 
 	
 	
 	/**
