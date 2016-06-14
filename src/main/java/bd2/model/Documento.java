@@ -8,8 +8,8 @@
  */
 package bd2.model;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 /**
  * @author Grupo10
@@ -45,7 +45,7 @@ public class Documento {
 	 * Variable de instancia parrafos
 	 * Colección de objeros parrafos
 	 */
-	private Collection<Parrafo> parrafos;
+	private Collection<Parrafo> parrafos = new HashSet<Parrafo>();
 	
 	/**
 	 * Constructor por defecto para la clase Documento.
@@ -65,7 +65,7 @@ public class Documento {
 		this.nombre = nuevoNombre;
 		this.complejidad = 0;		
 		this.idioma = nuevoIdioma;
-		this.parrafos = new ArrayList<Parrafo>();
+		this.parrafos = new HashSet<Parrafo>();
 	}
 	
 	
