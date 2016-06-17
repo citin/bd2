@@ -12,19 +12,7 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
-import bd2.model.Cursada;
-import bd2.model.Curso;
-import bd2.model.Documento;
-import bd2.model.Evaluacion;
-import bd2.model.Idioma;
-import bd2.model.Leccion;
-import bd2.model.Moderador;
-import bd2.model.Parrafo;
-import bd2.model.Prueba;
-import bd2.model.Sitio;
-import bd2.model.Traduccion;
-import bd2.model.Usuario;
-import bd2.tests.*;
+import bd2.model.*;
 
 public class DBLoader {
 
