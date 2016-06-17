@@ -76,6 +76,10 @@ public class Prueba {
 		this.idPrueba = idPrueba;
 	}
 	
+	public long getIdprueba() {
+		return idPrueba;
+	}
+	
 	public long getidPrueba() {
 		return idPrueba;
 	}

@@ -71,6 +71,10 @@ public class Diccionario {
 	public long getidDiccionario() {
 		return idDiccionario;
 	}
+	
+	public long getIddiccionario() {
+		return idDiccionario;
+	}
 	/**
 	 * Método para setear el id del objeto diccionario
 	 * @param idDiccionario
