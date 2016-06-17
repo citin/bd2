@@ -32,14 +32,14 @@ public class Queries {
 		sessions = cfg.buildSessionFactory();
 		Session session = sessions.openSession();
 
-//		consultaHQL_a(session);
-//		consultaHQL_b(session);
-////		consultaHQL_c(session);
-//		consultaHQL_d(session);
-////		consultaHQL_e(session);
-//		consultaHQL_f(session);
-////		consultaHQL_g(session);
-//		consultaHQL_h(session);
+		consultaHQL_a(session);
+		consultaHQL_b(session);
+//		consultaHQL_c(session);
+		consultaHQL_d(session);
+//		consultaHQL_e(session);
+		consultaHQL_f(session);
+//		consultaHQL_g(session);
+		consultaHQL_h(session);
 		consultaHQL_i(session);
 		
 		session.close();
