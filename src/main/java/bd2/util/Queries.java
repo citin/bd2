@@ -38,7 +38,7 @@ public class Queries {
 		consultaHQL_d(session);
 		consultaHQL_e(session);
 		consultaHQL_f(session);
-//		consultaHQL_g(session);
+		consultaHQL_g(session,"Leuchtturm");
 		consultaHQL_h(session);
 		consultaHQL_i(session);
 		
@@ -183,6 +183,23 @@ public class Queries {
 			System.out.println("El documento "+d.getNombre()+" no está totalmente traducido. \n");
 		}
 		tx.commit();
+	}
+	
+	public static void consultaHQL_g(Session session, String palabra) {
+		
+		Query query = session.createQuery("select distinct d from Diccionario d join d.definiciones def where index(def) = :palabra");
+		query.setString("palabra", palabra);
+
+		System.out.println("----------------------------------------------------------------------------------------");		
+		System.out.println("\n\n g) Obtener el idioma que define la palabra enviada como parámetro en su diccionario\n");
+		
+		List<Diccionario> diccionarios = query.list();
+		for (Diccionario d : diccionarios) {
+			System.out.println("El idioma "+d.getIdioma().getNombre()+" define la palabra "+palabra+"\n");
+		}
+		
+		System.out.println("\n");
+
 	}
 	
 }
