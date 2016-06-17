@@ -75,6 +75,15 @@ public class Prueba {
 	public void setIdPrueba(long idPrueba) {
 		this.idPrueba = idPrueba;
 	}
+	
+	public long getidPrueba() {
+		return idPrueba;
+	}
+
+	public void setidPrueba(long idPrueba) {
+		this.idPrueba = idPrueba;
+	}
+
 
 	// Methods
 	

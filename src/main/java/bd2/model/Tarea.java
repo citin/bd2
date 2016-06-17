@@ -98,7 +98,7 @@ public abstract class Tarea {
 		return idTarea;
 	}
 
-	public long getIdtarea() {
+	public long getidTarea() {
 		return idTarea;
 	}
 

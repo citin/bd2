@@ -68,7 +68,7 @@ public class Diccionario {
 		return idDiccionario;
 	}
 	
-	public long getIddiccionario() {
+	public long getidDiccionario() {
 		return idDiccionario;
 	}
 	/**
