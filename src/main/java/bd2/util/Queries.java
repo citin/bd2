@@ -52,7 +52,6 @@ public class Queries {
 	 */
 	
 	public static void consultaHQL_a(Session session) {
-
 		tx = session.beginTransaction();
 	
 		Query query = session.createQuery("FROM Documento");
@@ -66,7 +65,6 @@ public class Queries {
 			System.out.println("Documento: " + d.getNombre() + "\n");
 		}
 		System.out.println("\n");
-	
 	
 		tx.commit();
 	}	
@@ -98,7 +96,6 @@ public class Queries {
 	 */	
 	
 	public static void consultaHQL_c(Session session) {
-
 		tx = session.beginTransaction();
 
 		Query query = session.createQuery("SELECT DISTINCT usr FROM Usuario usr JOIN usr.cursadasRealizadas c WHERE c.curso.idioma.nombre = 'Frances' AND c.curso.nivel >= 3");
@@ -112,7 +109,6 @@ public class Queries {
 		}
 		System.out.println("\n");
 
-
 		tx.commit();
 	}
 	
@@ -124,7 +120,6 @@ public class Queries {
 	
 	public static void consultaHQL_d(Session session) {
 		tx = session.beginTransaction();
-
 		Query query = session.createQuery("SELECT distinct m FROM Moderador m JOIN m.evaluaciones e WHERE (e.traduccion.fecha BETWEEN :fecha_desde AND :fecha_hasta)");
 		query.setString("fecha_desde","2015-07-01");
 		query.setString("fecha_hasta","2015-12-31");
@@ -196,12 +191,12 @@ public class Queries {
 	 */		
 	
 	public static void consultaHQL_g(Session session, String palabra) {
-		
+		tx = session.beginTransaction();
 		Query query = session.createQuery("select distinct d from Diccionario d join d.definiciones def where index(def) = :palabra");
 		query.setString("palabra", palabra);
 
 		System.out.println("----------------------------------------------------------------------------------------");		
-		System.out.println("\n\n g) Obtener el idioma que define la palabra enviada como parámetro en su diccionario\n");
+		System.out.println("\n\n g) Obtener el idioma que define la palabra enviada como parámetro en su diccionario. \n\n");
 		
 		List<Diccionario> diccionarios = query.list();
 		for (Diccionario d : diccionarios) {
@@ -209,7 +204,7 @@ public class Queries {
 		}
 		
 		System.out.println("\n");
-
+		tx.commit();
 	}	
 	
 	
