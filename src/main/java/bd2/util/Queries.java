@@ -46,6 +46,11 @@ public class Queries {
 
 	}
 
+	/**
+	 * a) Listar los nombres de	todos los documentos
+	 * @param session
+	 */
+	
 	public static void consultaHQL_a(Session session) {
 
 		tx = session.beginTransaction();
@@ -66,6 +71,12 @@ public class Queries {
 		tx.commit();
 	}	
 	
+	
+	/**
+	 * b) Listar los emails	de los	moderadores	que	hayan evaluado	traducciones al	inglés.	
+	 * @param session
+	 */
+	
 	public static void consultaHQL_b(Session session) {
 		tx = session.beginTransaction();
 		
@@ -81,6 +92,11 @@ public class Queries {
 	}
 
 
+	/**
+	 * c) Listar los usuarios que hayan	iniciado una cursada de	Francés	de	nivel 3	como mínimo.	
+	 * @param session
+	 */	
+	
 	public static void consultaHQL_c(Session session) {
 
 		tx = session.beginTransaction();
@@ -100,6 +116,12 @@ public class Queries {
 		tx.commit();
 	}
 	
+	
+	/**
+	 * d) Listar moderadores que hayan revisado	alguna traducción entre dos fechas pasadas como argumento.		
+	 * @param session
+	 */		
+	
 	public static void consultaHQL_d(Session session) {
 		tx = session.beginTransaction();
 
@@ -117,6 +139,13 @@ public class Queries {
 		tx.commit();
 	}
 	
+	
+	
+	/**
+	 * e) Listar traducciones completas	del	Inglés al Francés.		
+	 * @param session
+	 */		
+	
 	public static void consultaHQL_e(Session session) {
 		tx = session.beginTransaction();
 		Query query = session.createQuery("FROM Traduccion t where t.idioma.nombre = 'Frances' and t.parrafo.documento.idioma.nombre = 'Ingles'");
@@ -132,6 +161,13 @@ public class Queries {
 		tx.commit();
 	}
 
+	
+	
+	/**
+	 * f) Obtener los emails de	los	usuarios con alguna	cursada	aprobada.			
+	 * @param session
+	 */	
+	
 	public static void consultaHQL_f(Session session) {
 		tx = session.beginTransaction();
 		Query query = session.createQuery("SELECT distinct u FROM Usuario u WHERE u in ("
@@ -152,6 +188,13 @@ public class Queries {
 		tx.commit();
 	}	
 	
+	
+	
+	/**
+	 * g) Obtener los nombres de los documentos	que	no tengan ningún párrafo traducido (en ningún idioma).			
+	 * @param session
+	 */		
+	
 	public static void consultaHQL_g(Session session, String palabra) {
 		
 		Query query = session.createQuery("select distinct d from Diccionario d join d.definiciones def where index(def) = :palabra");
@@ -169,6 +212,13 @@ public class Queries {
 
 	}	
 	
+	
+	
+	/**
+	 * h) Obtener los nombres de los documentos	que	no tengan ningún párrafo traducido (en ningún idioma).			
+	 * @param session
+	 */		
+	
 	public static void consultaHQL_h(Session session) {
 		tx = session.beginTransaction();
 		Query query = session.createQuery("FROM Documento d WHERE d not in (SELECT doc FROM Documento doc JOIN doc.parrafos p WHERE p in (SELECT t.parrafo FROM Traduccion t))");
@@ -182,6 +232,12 @@ public class Queries {
 		}
 		tx.commit();
 	}	
+	
+		
+	/**
+	 * i) Obtener los nombres de los documentos	que	tengan	párrafos sin traducir al idioma	de nombre enviado como parámetro.				
+	 * @param session
+	 */			
 	
 	public static void consultaHQL_i(Session session) {
 		tx = session.beginTransaction();
