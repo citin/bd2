@@ -46,6 +46,25 @@ public class Queries {
 
 	}
 
+	public static void consultaHQL_a(Session session) {
+
+		tx = session.beginTransaction();
+	
+		Query query = session.createQuery("FROM Documento");
+	
+		List<Documento> documentos = query.list();
+		
+		System.out.println("----------------------------------------------------------------------------------------");
+		System.out.println("\n a) Listar los nombres de todos los documentos. \n");
+		
+		for (Documento d : documentos) {
+			System.out.println("Documento: " + d.getNombre() + "\n");
+		}
+		System.out.println("\n");
+	
+	
+		tx.commit();
+	}	
 	
 	public static void consultaHQL_b(Session session) {
 		tx = session.beginTransaction();
@@ -62,26 +81,6 @@ public class Queries {
 	}
 
 
-	public static void consultaHQL_a(Session session) {
-
-	tx = session.beginTransaction();
-
-	Query query = session.createQuery("FROM Documento");
-
-	List<Documento> documentos = query.list();
-	
-	System.out.println("----------------------------------------------------------------------------------------");
-	System.out.println("\n a) Listar los nombres de todos los documentos. \n");
-	
-	for (Documento d : documentos) {
-		System.out.println("Documento: " + d.getNombre() + "\n");
-	}
-	System.out.println("\n");
-
-
-	tx.commit();
-	}
-	
 	public static void consultaHQL_c(Session session) {
 
 		tx = session.beginTransaction();
@@ -89,7 +88,7 @@ public class Queries {
 		Query query = session.createQuery("SELECT DISTINCT usr FROM Usuario usr JOIN usr.cursadasRealizadas c WHERE c.curso.idioma.nombre = 'Frances' AND c.curso.nivel >= 3");
 
 		System.out.println("----------------------------------------------------------------------------------------");
-		System.out.println("\n a) Listar los usuarios que hayan iniciado una cursada de Frances de nivel 3 como minimo \n");
+		System.out.println("\n c) Listar los usuarios que hayan iniciado una cursada de Frances de nivel 3 como minimo \n");
 
 		List<Usuario> usuarios = query.list();		
 		for (Usuario usr : usuarios) {
@@ -99,7 +98,7 @@ public class Queries {
 
 
 		tx.commit();
-		}
+	}
 	
 	public static void consultaHQL_d(Session session) {
 		tx = session.beginTransaction();
@@ -133,20 +132,6 @@ public class Queries {
 		tx.commit();
 	}
 
-	public static void consultaHQL_h(Session session) {
-		tx = session.beginTransaction();
-		Query query = session.createQuery("FROM Documento d WHERE d not in (SELECT doc FROM Documento doc JOIN doc.parrafos p WHERE p in (SELECT t.parrafo FROM Traduccion t))");
-
-		System.out.println("----------------------------------------------------------------------------------------");
-		System.out.println("\n\n h) Obtener los nombres de los documentos que no tengan ningún párrafo traducido (en ningun idioma). \n\n");
-		
-		List<Documento> documentos_sin_traduccion = query.list();
-		for (Documento d : documentos_sin_traduccion) {
-			System.out.println("El documento "+d.getNombre()+" no tiene ninguna traducción\n");
-		}
-		tx.commit();
-	}	
-	
 	public static void consultaHQL_f(Session session) {
 		tx = session.beginTransaction();
 		Query query = session.createQuery("SELECT distinct u FROM Usuario u WHERE u in ("
@@ -165,7 +150,38 @@ public class Queries {
 		}
 		System.out.println("\n");
 		tx.commit();
-	}
+	}	
+	
+	public static void consultaHQL_g(Session session, String palabra) {
+		
+		Query query = session.createQuery("select distinct d from Diccionario d join d.definiciones def where index(def) = :palabra");
+		query.setString("palabra", palabra);
+
+		System.out.println("----------------------------------------------------------------------------------------");		
+		System.out.println("\n\n g) Obtener el idioma que define la palabra enviada como parámetro en su diccionario\n");
+		
+		List<Diccionario> diccionarios = query.list();
+		for (Diccionario d : diccionarios) {
+			System.out.println("El idioma "+d.getIdioma().getNombre()+" define la palabra "+palabra+"\n");
+		}
+		
+		System.out.println("\n");
+
+	}	
+	
+	public static void consultaHQL_h(Session session) {
+		tx = session.beginTransaction();
+		Query query = session.createQuery("FROM Documento d WHERE d not in (SELECT doc FROM Documento doc JOIN doc.parrafos p WHERE p in (SELECT t.parrafo FROM Traduccion t))");
+
+		System.out.println("----------------------------------------------------------------------------------------");
+		System.out.println("\n\n h) Obtener los nombres de los documentos que no tengan ningún párrafo traducido (en ningun idioma). \n\n");
+		
+		List<Documento> documentos_sin_traduccion = query.list();
+		for (Documento d : documentos_sin_traduccion) {
+			System.out.println("El documento "+d.getNombre()+" no tiene ninguna traducción\n");
+		}
+		tx.commit();
+	}	
 	
 	public static void consultaHQL_i(Session session) {
 		tx = session.beginTransaction();
@@ -184,22 +200,5 @@ public class Queries {
 		}
 		tx.commit();
 	}
-	
-	public static void consultaHQL_g(Session session, String palabra) {
-		
-		Query query = session.createQuery("select distinct d from Diccionario d join d.definiciones def where index(def) = :palabra");
-		query.setString("palabra", palabra);
 
-		System.out.println("----------------------------------------------------------------------------------------");		
-		System.out.println("\n\n g) Obtener el idioma que define la palabra enviada como parámetro en su diccionario\n");
-		
-		List<Diccionario> diccionarios = query.list();
-		for (Diccionario d : diccionarios) {
-			System.out.println("El idioma "+d.getIdioma().getNombre()+" define la palabra "+palabra+"\n");
-		}
-		
-		System.out.println("\n");
-
-	}
-	
 }
