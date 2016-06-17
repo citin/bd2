@@ -34,9 +34,9 @@ public class Queries {
 
 		consultaHQL_a(session);
 		consultaHQL_b(session);
-//		consultaHQL_c(session);
+		consultaHQL_c(session);
 		consultaHQL_d(session);
-//		consultaHQL_e(session);
+		consultaHQL_e(session);
 		consultaHQL_f(session);
 //		consultaHQL_g(session);
 		consultaHQL_h(session);
@@ -64,7 +64,7 @@ public class Queries {
 
 	public static void consultaHQL_a(Session session) {
 
-//	tx = session.beginTransaction();
+	tx = session.beginTransaction();
 
 	Query query = session.createQuery("FROM Documento");
 
@@ -79,14 +79,14 @@ public class Queries {
 	System.out.println("\n");
 
 
-//	tx.commit();
+	tx.commit();
 	}
 	
 	public static void consultaHQL_c(Session session) {
 
-//		tx = session.beginTransaction();
+		tx = session.beginTransaction();
 
-		Query query = session.createQuery("FROM Usuario WHERE ");
+		Query query = session.createQuery("SELECT DISTINCT usr FROM Usuario usr JOIN usr.cursadasRealizadas c WHERE c.curso.idioma.nombre = 'Frances' AND c.curso.nivel >= 3");
 
 		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("\n a) Listar los usuarios que hayan iniciado una cursada de Frances de nivel 3 como minimo \n");
@@ -98,7 +98,7 @@ public class Queries {
 		System.out.println("\n");
 
 
-//		tx.commit();
+		tx.commit();
 		}
 	
 	public static void consultaHQL_d(Session session) {
@@ -115,6 +115,21 @@ public class Queries {
 		for (Moderador m : moderadores_entre_fechas) {
 			System.out.println("Nombre: "+m.getNombre()+"\n");
 		}
+		tx.commit();
+	}
+	
+	public static void consultaHQL_e(Session session) {
+		tx = session.beginTransaction();
+		Query query = session.createQuery("FROM Traduccion t where t.idioma.nombre = 'Frances' and t.parrafo.documento.idioma.nombre = 'Ingles'");
+
+		System.out.println("----------------------------------------------------------------------------------------");
+		System.out.println("\n\n E) Listar traducciones	completas del Inglés al	Francés. \n\n");
+		
+		List<Tarea> tareas = query.list();
+		for (Tarea t : tareas) {
+			System.out.println("Nombre: " + t.getDescripcion() + "\n");
+		}
+		System.out.println("\n");
 		tx.commit();
 	}
 

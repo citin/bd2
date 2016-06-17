@@ -163,6 +163,8 @@
             <generator class="native" />
         </id>
         <property name="texto" type="text" />
+        
+        <many-to-one name="documento" column="ID_DOCUMENTO" />
     </class>
     
     <class name="Tarea" table="tareas">
