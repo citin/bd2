@@ -33,7 +33,7 @@ public class Queries {
 		Session session = sessions.openSession();
 
 		consultaHQL_a(session);
-		consultaHQL_b(session);
+		consultaHQL_b(session, "ingles");
 		consultaHQL_c(session);
 		consultaHQL_d(session, "2015-07-01", "2015-12-31");
 		consultaHQL_e(session);
@@ -69,13 +69,14 @@ public class Queries {
 	
 	
 	/**
-	 * b) Listar los emails	de los	moderadores	que	hayan evaluado	traducciones al	inglés.	
+	 * b) Listar los emails	de los moderadores que hayan evaluado traducciones al inglés.	
 	 * @param session
 	 */
 	
-	public static void consultaHQL_b(Session session) {
+	public static void consultaHQL_b(Session session, String nombreIdioma) {
 		
-     	Query query = session.createQuery("SELECT distinct m FROM Moderador m JOIN m.evaluaciones e WHERE e.traduccion.idioma.nombre = 'ingles'");
+     	Query query = session.createQuery("SELECT distinct m FROM Moderador m JOIN m.evaluaciones e WHERE e.traduccion.idioma.nombre = :nombre_idioma");
+     	query.setParameter("nombre_idioma", nombreIdioma);
 
 		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("\n\n b) Listar los emails de los moderadores que hayan evaluado traducciones al inglés. \n\n");
@@ -91,7 +92,7 @@ public class Queries {
 
 
 	/**
-	 * c) Listar los usuarios que hayan	iniciado una cursada de	Francés	de	nivel 3	como mínimo.	
+	 * c) Listar los usuarios que hayan	iniciado una cursada de	Francés	de nivel 3 como mínimo.	
 	 * @param session
 	 */	
 	
