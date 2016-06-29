@@ -38,9 +38,9 @@ public class Queries {
 		consultaHQL_d(session, "2015-07-01", "2015-12-31");
 		consultaHQL_e(session);
 		consultaHQL_f(session);
-		consultaHQL_g(session,"Leuchtturm");
+		consultaHQL_g(session, "Leuchtturm");
 		consultaHQL_h(session);
-		consultaHQL_i(session);
+		consultaHQL_i(session, "Aleman");
 		
 		session.close();
 
@@ -245,10 +245,8 @@ public class Queries {
 	 * @param session
 	 */			
 	
-	public static void consultaHQL_i(Session session) {
-		
+	public static void consultaHQL_i(Session session, String nombreIdioma) {
 
-		String nombreIdioma = "Aleman";
 		Query query = session.createQuery("SELECT distinct d FROM Documento d JOIN d.parrafos p WHERE p not in ("
 												+ "SELECT t.parrafo FROM Traduccion t WHERE t.idioma.nombre = :nombre_idioma)");
 		query.setString("nombre_idioma", nombreIdioma);
