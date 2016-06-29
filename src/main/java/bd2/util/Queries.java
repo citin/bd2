@@ -35,7 +35,7 @@ public class Queries {
 		consultaHQL_a(session);
 		consultaHQL_b(session);
 		consultaHQL_c(session);
-		consultaHQL_d(session);
+		consultaHQL_d(session, "2015-07-01", "2015-12-31");
 		consultaHQL_e(session);
 		consultaHQL_f(session);
 		consultaHQL_g(session,"Leuchtturm");
@@ -119,11 +119,11 @@ public class Queries {
 	 * @param session
 	 */		
 	
-	public static void consultaHQL_d(Session session) {
+	public static void consultaHQL_d(Session session, String fechaDesde, String fechaHasta) {
 	
 		Query query = session.createQuery("SELECT distinct m FROM Moderador m JOIN m.evaluaciones e WHERE (e.traduccion.fecha BETWEEN :fecha_desde AND :fecha_hasta)");
-		query.setString("fecha_desde","2015-07-01");
-		query.setString("fecha_hasta","2015-12-31");
+		query.setString("fecha_desde", fechaDesde);
+		query.setString("fecha_hasta", fechaHasta);
 
 		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("\n\n d) Listar moderadores que hayan revisado alguna traducción entre dos fechas pasadas como argumento. \n\n");
