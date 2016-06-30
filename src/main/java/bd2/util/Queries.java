@@ -98,9 +98,12 @@ public class Queries {
 	 */	
 	
 	public static void consultaHQL_c(Session session) {
-		
 
-		Query query = session.createQuery("SELECT DISTINCT usr FROM Usuario usr JOIN usr.cursadasRealizadas c WHERE c.curso.idioma.nombre = 'Frances' AND c.curso.nivel >= 3");
+		Query query = session.createQuery("SELECT DISTINCT u FROM Usuario u WHERE u.idUsuario in "
+												 + "(SELECT usuario FROM Cursada c "
+												 + "WHERE u.idUsuario = c.usuario.idUsuario "
+												 + "AND c.curso.idioma.nombre = 'Frances' "
+												 + "AND c.curso.nivel >= 3)");
 
 		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("\n c) Listar los usuarios que hayan iniciado una cursada de Frances de nivel 3 como minimo \n");
