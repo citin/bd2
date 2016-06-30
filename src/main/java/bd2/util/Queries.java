@@ -146,12 +146,12 @@ public class Queries {
 	
 	/**
 	 * e) Listar traducciones completas	del	Inglés al Francés.		
-	 * @param session
+	 * @param sessiot
 	 */		
 	
 	public static void consultaHQL_e(Session session) {
 		
-		Query query = session.createQuery("FROM Traduccion t where t.idioma.nombre = 'Frances' and t.parrafo.documento.idioma.nombre = 'Ingles'");
+		Query query = session.createQuery("SELECT t FROM Traduccion t WHERE t.completa = 1 AND t.idioma.nombre = 'Frances' AND t.parrafo.documento.idioma.nombre = 'Ingles'");
 
 		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("\n\n E) Listar traducciones	completas del Inglés al	Francés. \n\n");
