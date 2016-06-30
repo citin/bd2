@@ -126,7 +126,7 @@ public class Queries {
 	
 	public static void consultaHQL_d(Session session, String fechaDesde, String fechaHasta) {
 	
-		Query query = session.createQuery("SELECT distinct m FROM Moderador m JOIN m.evaluaciones e WHERE (e.traduccion.fecha BETWEEN :fecha_desde AND :fecha_hasta)");
+		Query query = session.createQuery("SELECT distinct m FROM Moderador m WHERE EXISTS (FROM m.evaluaciones e WHERE e.traduccion.fecha BETWEEN :fecha_desde AND :fecha_hasta)");
 		query.setString("fecha_desde", fechaDesde);
 		query.setString("fecha_hasta", fechaHasta);
 
