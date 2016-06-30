@@ -33,14 +33,14 @@ public class Queries {
 		Session session = sessions.openSession();
 
 		consultaHQL_a(session);
-		consultaHQL_b(session, "ingles");
+		consultaHQL_b(session, "Inglés");
 		consultaHQL_c(session);
-		consultaHQL_d(session, "2015-07-01", "2015-12-31");
-		consultaHQL_e(session);
-		consultaHQL_f(session);
-		consultaHQL_g(session, "Leuchtturm");
-		consultaHQL_h(session);
-		consultaHQL_i(session, "Aleman");
+//		consultaHQL_d(session, "2015-07-01", "2015-12-31");
+//		consultaHQL_e(session);
+//		consultaHQL_f(session);
+//		consultaHQL_g(session, "Leuchtturm");
+//		consultaHQL_h(session);
+//		consultaHQL_i(session, "Aleman");
 		
 		session.close();
 
@@ -52,17 +52,17 @@ public class Queries {
 	 */
 	
 	public static void consultaHQL_a(Session session) {
-		Query query = session.createQuery("FROM Documento");
+		Query query = session.createQuery("SELECT D.nombre FROM Documento D");
 	
 		tx = session.beginTransaction();
-		List<Documento> documentos = query.list();
+		List<String> documentos = query.list();
 		tx.commit();
 		
 		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("\n a) Listar los nombres de todos los documentos. \n");
 		
-		for (Documento d : documentos) {
-			System.out.println("Documento: " + d.getNombre() + "\n");
+		for (String d : documentos) {
+			System.out.println("Documento: " + d + "\n");
 		}
 		System.out.println("\n");
 	}	
@@ -75,18 +75,18 @@ public class Queries {
 	
 	public static void consultaHQL_b(Session session, String nombreIdioma) {
 		
-     	Query query = session.createQuery("SELECT distinct m FROM Moderador m JOIN m.evaluaciones e WHERE e.traduccion.idioma.nombre = :nombre_idioma");
+     	Query query = session.createQuery("SELECT DISTINCT m.email FROM Moderador m JOIN m.evaluaciones e WHERE e.traduccion.idioma.nombre = :nombre_idioma");
      	query.setParameter("nombre_idioma", nombreIdioma);
 
 		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("\n\n b) Listar los emails de los moderadores que hayan evaluado traducciones al inglés. \n\n");
 		
 		tx = session.beginTransaction();
-     	List<Moderador> moderadores = query.list();
+     	List<String> moderadores = query.list();
      	tx.commit();
      	
-		for (Moderador m : moderadores) {
-			System.out.println("Email: " + m.getEmail() + "\n");
+		for (String email : moderadores) {
+			System.out.println("Email: " + email + "\n");
 		}
 	}
 
