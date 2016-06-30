@@ -14,6 +14,7 @@ import bd2.model.Diccionario;
 import bd2.model.Documento;
 import bd2.model.Moderador;
 import bd2.model.Tarea;
+import bd2.model.Traduccion;
 import bd2.model.Usuario;
 
 public class Queries {
@@ -35,12 +36,12 @@ public class Queries {
 		consultaHQL_a(session);
 		consultaHQL_b(session, "Inglés");
 		consultaHQL_c(session);
-//		consultaHQL_d(session, "2015-07-01", "2015-12-31");
-//		consultaHQL_e(session);
-//		consultaHQL_f(session);
-//		consultaHQL_g(session, "Leuchtturm");
-//		consultaHQL_h(session);
-//		consultaHQL_i(session, "Aleman");
+		consultaHQL_d(session, "2015-07-01", "2015-12-31");
+		consultaHQL_e(session);
+		consultaHQL_f(session);
+		consultaHQL_g(session, "Leuchtturm");
+		consultaHQL_h(session);
+		consultaHQL_i(session, "Aleman");
 		
 		session.close();
 
@@ -153,10 +154,10 @@ public class Queries {
 		System.out.println("\n\n E) Listar traducciones	completas del Inglés al	Francés. \n\n");
 		
 		tx = session.beginTransaction();
-		List<Tarea> tareas = query.list();
+		List<Traduccion> traducciones = query.list();
 		tx.commit();
 		
-		for (Tarea t : tareas) {
+		for (Traduccion t : traducciones) {
 			System.out.println("Nombre: " + t.getDescripcion() + "\n");
 		}
 		System.out.println("\n");
@@ -171,7 +172,7 @@ public class Queries {
 	
 	public static void consultaHQL_f(Session session) {
 		
-		Query query = session.createQuery("SELECT distinct u FROM Usuario u WHERE u in ("
+		Query query = session.createQuery("SELECT distinct u.email FROM Usuario u WHERE u in ("
 											+ "SELECT c.usuario FROM Cursada c JOIN c.pruebas p "
 											+ "WHERE p.puntaje >= 60 AND c.usuario = u "
 											+ "GROUP BY c.curso "
@@ -182,11 +183,11 @@ public class Queries {
 		System.out.println("\n\n F) Obtener los emails de los usuarios con alguna cursada aprobada. \n\n");
 		
 		tx = session.beginTransaction();
-		List<Usuario> usuarios_con_cursada_aprobada = query.list();
+		List<String> emails = query.list();
 		tx.commit();
 		
-		for (Usuario u : usuarios_con_cursada_aprobada) {
-			System.out.println("Usuario con cursada aprobada: "+u.getEmail()+"\n");
+		for (String email : emails) {
+			System.out.println("Usuario con cursada aprobada: "+ email +"\n");
 		}
 		System.out.println("\n");
 	}	
@@ -226,17 +227,17 @@ public class Queries {
 	
 	public static void consultaHQL_h(Session session) {
 		
-		Query query = session.createQuery("FROM Documento d WHERE d not in (SELECT doc FROM Documento doc JOIN doc.parrafos p WHERE p in (SELECT t.parrafo FROM Traduccion t))");
+		Query query = session.createQuery("SELECT d.nombre FROM Documento d WHERE d not in (SELECT doc FROM Documento doc JOIN doc.parrafos p WHERE p in (SELECT t.parrafo FROM Traduccion t))");
 
 		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("\n\n h) Obtener los nombres de los documentos que no tengan ningún párrafo traducido (en ningun idioma). \n\n");
 		
 		tx = session.beginTransaction();
-		List<Documento> documentos_sin_traduccion = query.list();
+		List<String> nombres = query.list();
 		tx.commit();
 		
-		for (Documento d : documentos_sin_traduccion) {
-			System.out.println("El documento "+d.getNombre()+" no tiene ninguna traducción\n");
+		for (String n : nombres) {
+			System.out.println("El documento "+ n +" no tiene ninguna traducción\n");
 		}
 	}	
 	
@@ -248,7 +249,7 @@ public class Queries {
 	
 	public static void consultaHQL_i(Session session, String nombreIdioma) {
 
-		Query query = session.createQuery("SELECT distinct d FROM Documento d JOIN d.parrafos p WHERE p not in ("
+		Query query = session.createQuery("SELECT distinct d.nombre FROM Documento d JOIN d.parrafos p WHERE p not in ("
 												+ "SELECT t.parrafo FROM Traduccion t WHERE t.idioma.nombre = :nombre_idioma)");
 		query.setString("nombre_idioma", nombreIdioma);
 
@@ -256,11 +257,11 @@ public class Queries {
 		System.out.println("\n\n i) Obtener los nombres de los documentos que tengan párrafos sin traducir al idioma de nombre enviado como parámetro. \n\n");		
 	
 		tx = session.beginTransaction();
-		List<Documento> documentos_item_i = query.list();
+		List<String> nombres = query.list();
 		tx.commit();
 		
-		for (Documento d : documentos_item_i) {
-			System.out.println("El documento "+d.getNombre()+" no está totalmente traducido. \n");
+		for (String nombre : nombres) {
+			System.out.println("El documento "+ nombre +" no está totalmente traducido. \n");
 		}
 	}
 
