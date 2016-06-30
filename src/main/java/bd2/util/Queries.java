@@ -76,7 +76,7 @@ public class Queries {
 	
 	public static void consultaHQL_b(Session session, String nombreIdioma) {
 		
-     	Query query = session.createQuery("SELECT DISTINCT m.email FROM Moderador m JOIN m.evaluaciones e WHERE e.traduccion.idioma.nombre = :nombre_idioma");
+		Query query = session.createQuery("SELECT DISTINCT m.email FROM Moderador m WHERE :nombre_idioma in (SELECT e.traduccion.idioma.nombre FROM m.evaluaciones e)");		
      	query.setParameter("nombre_idioma", nombreIdioma);
 
 		System.out.println("----------------------------------------------------------------------------------------");
