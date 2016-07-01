@@ -16,6 +16,7 @@ import bd2.model.Moderador;
 import bd2.model.Tarea;
 import bd2.model.Traduccion;
 import bd2.model.Usuario;
+import bd2.model.Idioma;
 
 public class Queries {
 
@@ -33,14 +34,14 @@ public class Queries {
 		sessions = cfg.buildSessionFactory();
 		Session session = sessions.openSession();
 
-		consultaHQL_a(session);
-		consultaHQL_b(session, "Inglés");
-		consultaHQL_c(session);
-		consultaHQL_d(session, "2015-07-01", "2015-12-31");
-		consultaHQL_e(session);
-		consultaHQL_f(session);
-		consultaHQL_g(session, "Leuchtturm");
-		consultaHQL_h(session);
+//		consultaHQL_a(session);
+//		consultaHQL_b(session, "Inglés");
+//		consultaHQL_c(session);
+//		consultaHQL_d(session, "2015-07-01", "2015-12-31");
+//		consultaHQL_e(session);
+//		consultaHQL_f(session);
+//		consultaHQL_g(session, "Leuchtturm");
+//		consultaHQL_h(session);
 		consultaHQL_i(session, "Aleman");
 		
 		session.close();
@@ -175,12 +176,11 @@ public class Queries {
 	
 	public static void consultaHQL_f(Session session) {
 		
-		Query query = session.createQuery("SELECT distinct u.email FROM Usuario u WHERE u in ("
-											+ "SELECT c.usuario FROM Cursada c JOIN c.pruebas p "
-											+ "WHERE p.puntaje >= 60 AND c.usuario = u "
-											+ "GROUP BY c.curso "
-											+ "HAVING count(p) = (SELECT cur.lecciones.size FROM Curso cur WHERE cur = c.curso)"
-				                            + ")");
+		
+		Query query =  session.createQuery("SELECT usr.email FROM Usuario usr WHERE EXISTS ("
+					+ "FROM Cursada c WHERE c IN elements(u.cursadasRealizadas) AND "
+					+ "NOT EXISTS(FROM Leccion l WHERE l IN elements(c.curso.lecciones) AND "
+					+ "NOT EXISTS(SELECT p.leccion FROM Prueba p WHERE p IN elements(c.pruebas) AND p.leccion = l AND p.puntaje >=60)))");
 
 		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("\n\n F) Obtener los emails de los usuarios con alguna cursada aprobada. \n\n");
@@ -198,24 +198,25 @@ public class Queries {
 	
 	
 	/**
-	 * g) Obtener los nombres de los documentos	que	no tengan ningún párrafo traducido (en ningún idioma).			
+	 * g) g) Obtener el idioma que define la palabra enviada como parámetro en su diccionario.			
 	 * @param session
 	 */		
 	
 	public static void consultaHQL_g(Session session, String palabra) {
 		
-		Query query = session.createQuery("select distinct d from Diccionario d join d.definiciones def where index(def) = :palabra");
-		query.setString("palabra", palabra);
+	
+		Query query = session.createQuery("SELECT d.idioma FROM Diccionario d WHERE :palabra IN indices(d.definiciones)");
+		query.setParameter("palabra", palabra);
 
 		System.out.println("----------------------------------------------------------------------------------------");		
 		System.out.println("\n\n g) Obtener el idioma que define la palabra enviada como parámetro en su diccionario. \n\n");
 		
 		tx = session.beginTransaction();
-		List<Diccionario> diccionarios = query.list();
+		List<Idioma> idiomas = query.list();
 		tx.commit();
 		
-		for (Diccionario d : diccionarios) {
-			System.out.println("El idioma "+d.getIdioma().getNombre()+" define la palabra "+palabra+"\n");
+		for (Idioma idioma : idiomas) {
+			System.out.println("El idioma "+ idioma.getNombre() + " define la palabra "+palabra+"\n");
 		}
 		
 		System.out.println("\n");
@@ -230,7 +231,10 @@ public class Queries {
 	
 	public static void consultaHQL_h(Session session) {
 		
-		Query query = session.createQuery("SELECT d.nombre FROM Documento d WHERE d not in (SELECT doc FROM Documento doc JOIN doc.parrafos p WHERE p in (SELECT t.parrafo FROM Traduccion t))");
+		Query query = session.createQuery(
+				"SELECT d.nombre FROM Documento d WHERE d "
+					+"NOT IN ( SELECT t.parrafo.documento FROM Traduccion t )");
+	
 
 		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("\n\n h) Obtener los nombres de los documentos que no tengan ningún párrafo traducido (en ningun idioma). \n\n");
@@ -252,10 +256,12 @@ public class Queries {
 	
 	public static void consultaHQL_i(Session session, String nombreIdioma) {
 
-		Query query = session.createQuery("SELECT distinct d.nombre FROM Documento d JOIN d.parrafos p WHERE p not in ("
-												+ "SELECT t.parrafo FROM Traduccion t WHERE t.idioma.nombre = :nombre_idioma)");
-		query.setString("nombre_idioma", nombreIdioma);
-
+		Query query = session.createQuery("SELECT DISTINCT p.documento.nombre FROM Parrafo p"
+                + " WHERE p NOT IN ( SELECT t.parrafo FROM Traduccion t"
+                + " WHERE :idioma = t.idioma.nombre)");
+		query.setParameter("idioma", nombreIdioma);
+		
+		
 		System.out.println("----------------------------------------------------------------------------------------");
 		System.out.println("\n\n i) Obtener los nombres de los documentos que tengan párrafos sin traducir al idioma de nombre enviado como parámetro. \n\n");		
 	
