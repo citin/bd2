@@ -177,7 +177,7 @@ public class Queries {
 	public static void consultaHQL_f(Session session) {
 		
 		
-		Query query =  session.createQuery("SELECT usr.email FROM Usuario usr WHERE EXISTS ("
+		Query query =  session.createQuery("SELECT u.email FROM Usuario u WHERE EXISTS ("
 					+ "FROM Cursada c WHERE c IN elements(u.cursadasRealizadas) AND "
 					+ "NOT EXISTS(FROM Leccion l WHERE l IN elements(c.curso.lecciones) AND "
 					+ "NOT EXISTS(SELECT p.leccion FROM Prueba p WHERE p IN elements(c.pruebas) AND p.leccion = l AND p.puntaje >=60)))");
@@ -198,7 +198,7 @@ public class Queries {
 	
 	
 	/**
-	 * g) g) Obtener el idioma que define la palabra enviada como parámetro en su diccionario.			
+	 * g) Obtener el idioma que define la palabra enviada como parámetro en su diccionario.			
 	 * @param session
 	 */		
 	
@@ -258,8 +258,8 @@ public class Queries {
 
 		Query query = session.createQuery("SELECT DISTINCT p.documento.nombre FROM Parrafo p"
                 + " WHERE p NOT IN ( SELECT t.parrafo FROM Traduccion t"
-                + " WHERE :idioma = t.idioma.nombre)");
-		query.setParameter("idioma", nombreIdioma);
+                + " WHERE t.idioma.nombre = :nombre_idioma)");
+		query.setParameter("nombre_idioma", nombreIdioma);
 		
 		
 		System.out.println("----------------------------------------------------------------------------------------");
