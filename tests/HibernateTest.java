@@ -23,6 +23,7 @@ public class HibernateTest extends TestCase {
 	    configuration.configure(pathConfig);
 	    
 
+
 		System.out.println("Droping schema.........");
 		new SchemaExport(configuration).drop(true, true);
 		System.out.println("DONE.");
